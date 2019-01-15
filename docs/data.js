@@ -87,30 +87,6 @@ function getQuadantsData() {
       entries: [
         {
           ring: ADOPT,
-          label: "Yarn",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "npm",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "grunt",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "gulp",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
           label: "Docker",
           active: true,
           moved: 0
@@ -292,8 +268,74 @@ function getQuadantsData() {
       ]
     },
     {
-      name: "Frameworks & libraries",
+      name: "Frameworks, libraries & development tools",
       entries: [
+        {
+          ring: HOLD,
+          label: "SenecaJS",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: HOLD,
+          label: "Bower",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ASSESS,
+          label: "Strapi",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: TRIAL,
+          label: "Puppeteer",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "Mongoose",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "Yarn",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "ESLint",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "TSLint",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: HOLD,
+          label: "npm",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: HOLD,
+          label: "grunt",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: HOLD,
+          label: "gulp",
+          active: true,
+          moved: 0
+        },
         {
           ring: ASSESS,
           label: "Rxjs",
