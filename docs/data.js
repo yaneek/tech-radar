@@ -12,25 +12,29 @@ function getQuadantsData() {
           ring: ADOPT,
           label: "JSON Schema",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://json-schema.org/"
         },
         {
           ring: ADOPT,
           label: "Swagger",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://swagger.io/"
         },
         {
           ring: ADOPT,
           label: "OpenAPI",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://swagger.io/blog/news/announcing-openapi-3-0/"
         },
         {
           ring: TRIAL,
           label: "GraphQL",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://graphql.org/"
         },
         {
           ring: ADOPT,
@@ -42,31 +46,29 @@ function getQuadantsData() {
           ring: ADOPT,
           label: "Typescript",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.typescriptlang.org/"
         },
         {
           ring: ADOPT,
           label: "PHP",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "http://www.php.net/"
         },
         {
           ring: TRIAL,
           label: "Python",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.python.org/"
         },
         {
           ring: ASSESS,
           label: "Golang",
           active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Delphi",
-          active: true,
-          moved: 0
+          moved: 0,
+          link: "https://golang.org/"
         },
         {
           ring: HOLD,
@@ -89,73 +91,85 @@ function getQuadantsData() {
           ring: ADOPT,
           label: "Docker",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.docker.com/"
         },
         {
           ring: ADOPT,
           label: "Docker Compose",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://docs.docker.com/compose/overview/"
         },
         {
           ring: ADOPT,
           label: "Vagrant",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.vagrantup.com/"
         },
         {
           ring: TRIAL,
           label: "Rancher",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://rancher.com/"
         },
         {
           ring: TRIAL,
           label: "Kubernetes",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://kubernetes.io/"
         },
         {
           ring: HOLD,
           label: "Jenkins",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://jenkins.io/"
         },
         {
           ring: TRIAL,
           label: "Travis",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://travis-ci.org/"
         },
         {
           ring: ADOPT,
           label: "Gitlab CI",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://about.gitlab.com/product/continuous-integration/"
         },
         {
           ring: HOLD,
           label: "Bitbucket pipelines",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://bitbucket.org/product/features/pipelines"
         },
         {
           ring: ADOPT,
           label: "Gitlab",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://about.gitlab.com/"
         },
         {
           ring: ADOPT,
           label: "JIRA",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.atlassian.com/software/jira"
         },
         {
           ring: ADOPT,
           label: "Slack",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://slack.com/"
         },
         {
           ring: HOLD,
@@ -167,49 +181,57 @@ function getQuadantsData() {
           ring: ADOPT,
           label: "draw.io",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.draw.io/"
         },
         {
           ring: ADOPT,
           label: "BalsamiQ",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://balsamiq.com/"
         },
         {
           ring: ADOPT,
           label: "XMind",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.xmind.net/"
         },
         {
           ring: ADOPT,
           label: "VSC",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://code.visualstudio.com/"
         },
         {
           ring: ADOPT,
           label: "PHP Storm",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://www.jetbrains.com/phpstorm/"
         },
         {
           ring: ASSESS,
           label: "Azure functions",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://azure.microsoft.com/en-us/services/functions/"
         },
         {
           ring: ASSESS,
           label: "AWS Lambda",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://aws.amazon.com/lambda/"
         },
         {
           ring: ADOPT,
           label: "AWS EC2",
           active: true,
-          moved: 0
+          moved: 0,
+          link: "https://aws.amazon.com/ec2/"
         },
         {
           ring: ADOPT,
@@ -270,6 +292,48 @@ function getQuadantsData() {
     {
       name: "Frameworks, libraries & development tools",
       entries: [
+        {
+          ring: ADOPT,
+          label: "Supertest",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "RC",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: TRIAL,
+          label: "TypeDI",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: TRIAL,
+          label: "Apollo Server",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "Nodemon",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "Winston",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
+          label: "Passport",
+          active: true,
+          moved: 0
+        },
         {
           ring: HOLD,
           label: "SenecaJS",

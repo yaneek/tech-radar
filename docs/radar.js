@@ -305,6 +305,9 @@ function radar_visualization(config) {
         legend.selectAll(".legend" + quadrant + ring)
           .data(segmented[quadrant][ring])
           .enter()
+            .append("a")
+            .attr("xlink:href", (d, i) => d.link )
+            .attr("target", "_BLANK")
             .append("text")
               .attr("transform", function(d, i) { return legend_transform(quadrant, ring, i); })
               .attr("class", "legend" + quadrant + ring)
@@ -313,7 +316,8 @@ function radar_visualization(config) {
               .style("font-family", "Arial, Helvetica")
               .style("font-size", "11")
               .on("mouseover", function(d) { showBubble(d); highlightLegendItem(d); })
-              .on("mouseout", function(d) { hideBubble(d); unhighlightLegendItem(d); });
+              .on("mouseout", function(d) { hideBubble(d); unhighlightLegendItem(d); })
+              ;
       }
     }
   }
