@@ -321,6 +321,20 @@ function getQuadantsData() {
       entries: [
         {
           ring: ADOPT,
+          label: "EditorConfig",
+          active: true,
+          moved: 0,
+          link: "https://editorconfig.org/"
+        },
+        {
+          ring: ADOPT,
+          label: "Browsersync",
+          active: true,
+          moved: 0,
+          link: "https://browsersync.io/"
+        },
+        {
+          ring: ADOPT,
           label: "Supertest",
           active: true,
           moved: 0

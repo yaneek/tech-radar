@@ -39,8 +39,7 @@
       },
       title: "Grzegorz Marchwiński - tech radar",
       quadrants: quadrants.map((quadrantItem) => {
-        let { name } = quadrantItem;
-        return { name };
+        return { name: quadrantItem.name };
       }),
       rings: [
         { name: "ADOPT", color: "#93c47d" },
@@ -52,13 +51,12 @@
       // zoomed_quadrant: 0,
       //ENTRIES
       entries: quadrants.reduce((previousValue, currentValue, index, array) => {
-        const entries = currentValue.entries.map((entryItem) => {
-          return {
-            ...entryItem,
+        currentValue.entries.forEach((entryItem) => {
+          previousValue.push(Object.assign(entryItem, {
             quadrant: index,
-          }
+          }))
         });
-        return [...previousValue, ...entries];
+        return previousValue;
       }, []),
     });
   </script>
