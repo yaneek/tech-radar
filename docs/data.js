@@ -10,6 +10,19 @@ function getQuadantsData() {
       entries: [
         {
           ring: ADOPT,
+          label: "Cypher",
+          active: true,
+          moved: 0,
+          link: "https://neo4j.com/developer/cypher/"
+        },
+        {
+          ring: ADOPT,
+          label: "SQL",
+          active: true,
+          moved: 0
+        },
+        {
+          ring: ADOPT,
           label: "JSON Schema",
           active: true,
           moved: 0,
@@ -225,6 +238,20 @@ function getQuadantsData() {
           active: true,
           moved: 0,
           link: "https://aws.amazon.com/lambda/"
+        },
+        {
+          ring: ASSESS,
+          label: "AWS S3",
+          active: true,
+          moved: 0,
+          link: "https://aws.amazon.com/s3/"
+        },
+        {
+          ring: ASSESS,
+          label: "Minio",
+          active: true,
+          moved: 0,
+          link: "https://www.minio.io/"
         },
         {
           ring: ADOPT,
@@ -556,6 +583,34 @@ function getQuadantsData() {
           moved: 0
         },
         {
+          ring: HOLD,
+          label: "Memcached",
+          active: true,
+          moved: 0,
+          link: "https://memcached.org/"
+        },
+        {
+          ring: ASSESS,
+          label: "Aerospike",
+          active: true,
+          moved: 0,
+          link: "https://www.aerospike.com/"
+        },
+        {
+          ring: ASSESS,
+          label: "Apache Ignite",
+          active: true,
+          moved: 0,
+          link: "https://ignite.apache.org/"
+        },
+        {
+          ring: ASSESS,
+          label: "Apache PredictionIO",
+          active: true,
+          moved: 0,
+          link: "https://predictionio.apache.org/"
+        },
+        {
           ring: ADOPT,
           label: "Neo4j",
           active: true,
@@ -580,7 +635,7 @@ function getQuadantsData() {
           moved: 0
         },
         {
-          ring: HOLD,
+          ring: ADOPT,
           label: "MySql",
           active: true,
           moved: 0
