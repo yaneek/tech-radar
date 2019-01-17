@@ -496,7 +496,7 @@ function getQuadantsData() {
           moved: 0
         },
         {
-          ring: ADOPT,
+          ring: HOLD,
           label: "Mocha",
           active: true,
           moved: 0

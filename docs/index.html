@@ -22,43 +22,60 @@
 </head>
 
 <body>
-
+  <!-- <div id="delete">delete</div>
+  <div id="show">show</div> -->
   <svg id="radar"></svg>
 
   <script>
-    const quadrants = getQuadantsData();
+    function showRadar() {
+      const quadrants = getQuadantsData();
+      radar_visualization({
+        svg_id: "radar",
+        width: 1450,
+        height: 1000,
+        colors: {
+          background: "#fff",
+          grid: "#bbb",
+          inactive: "#ddd"
+        },
+        title: "Grzegorz Marchwiński - tech radar",
+        quadrants: quadrants.map((quadrantItem) => {
+          return { name: quadrantItem.name };
+        }),
+        rings: [
+          { name: "ADOPT", color: "#93c47d" },
+          { name: "TRIAL", color: "#93d2c2" },
+          { name: "ASSESS", color: "#fbdb84" },
+          { name: "HOLD", color: "#efafa9" }
+        ],
+        print_layout: true,
+        // zoomed_quadrant: 0,
+        //ENTRIES
+        entries: quadrants.reduce((previousValue, currentValue, index, array) => {
+          currentValue.entries.forEach((entryItem) => {
+            previousValue.push(Object.assign(entryItem, {
+              quadrant: index,
+            }))
+          });
+          return previousValue;
+        }, []),
+      });
+    }
 
-    radar_visualization({
-      svg_id: "radar",
-      width: 1450,
-      height: 1000,
-      colors: {
-        background: "#fff",
-        grid: "#bbb",
-        inactive: "#ddd"
-      },
-      title: "Grzegorz Marchwiński - tech radar",
-      quadrants: quadrants.map((quadrantItem) => {
-        return { name: quadrantItem.name };
-      }),
-      rings: [
-        { name: "ADOPT", color: "#93c47d" },
-        { name: "TRIAL", color: "#93d2c2" },
-        { name: "ASSESS", color: "#fbdb84" },
-        { name: "HOLD", color: "#efafa9" }
-      ],
-      print_layout: true,
-      // zoomed_quadrant: 0,
-      //ENTRIES
-      entries: quadrants.reduce((previousValue, currentValue, index, array) => {
-        currentValue.entries.forEach((entryItem) => {
-          previousValue.push(Object.assign(entryItem, {
-            quadrant: index,
-          }))
-        });
-        return previousValue;
-      }, []),
-    });
+    // function deleteRadar() {
+    //   var svg = d3.select("svg#radar");
+    //   svg.selectAll("*").remove();
+    // }
+
+    // document.getElementById('delete').addEventListener('click', () => {
+    //   deleteRadar();
+    // })
+    // document.getElementById('show').addEventListener('click', () => {
+    //   deleteRadar();
+    //   showRadar();
+    // })
+
+    showRadar();
   </script>
 
 </body>
@@ -82,7 +99,7 @@
           real problem; TRIAL technologies are slightly more risky</li>
 
         <li><strong>ASSESS</strong> &mdash; Technologies that are promising and have clear potential value-add for me;
-          I read, learn and monitor such technolologies. Sometimes i started a prototyping effort  ASSESS
+          I read, learn and monitor such technolologies. Sometimes i started a prototyping effort ASSESS
           technologies have higher risks.</li>
 
         <li><strong>HOLD</strong> &mdash; This does not always mean that technology is bad, it just means
@@ -96,7 +113,7 @@
       <h3>What is the purpose?</h3>
 
       <p>
-          This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
+        This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
           work of ThoughtWorks</a>.
       </p>
 
