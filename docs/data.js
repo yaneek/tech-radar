@@ -1,686 +1,1056 @@
-function getQuadantsData() {
-  const ADOPT = 0;
-  const TRIAL = 1;
-  const ASSESS = 2;
-  const HOLD = 3;
+const ADOPT = 0;
+const TRIAL = 1;
+const ASSESS = 2;
+const HOLD = 3;
+const RING_NAME_TO_RING_INDEX = [
+  'ADOPT',
+  'TRIAL',
+  'ASSESS',
+  'HOLD',
+];
 
-  const quadrants = [
-    {
-      name: "Languages",
-      entries: [
-        {
-          ring: ADOPT,
-          label: "Cypher",
-          active: true,
-          moved: 0,
-          link: "https://neo4j.com/developer/cypher/"
-        },
-        {
-          ring: ADOPT,
-          label: "SQL",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "JSON Schema",
-          active: true,
-          moved: 0,
-          link: "https://json-schema.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "Swagger",
-          active: true,
-          moved: 0,
-          link: "https://swagger.io/"
-        },
-        {
-          ring: ADOPT,
-          label: "OpenAPI",
-          active: true,
-          moved: 0,
-          link: "https://swagger.io/blog/news/announcing-openapi-3-0/"
-        },
-        {
-          ring: TRIAL,
-          label: "GraphQL",
-          active: true,
-          moved: 0,
-          link: "https://graphql.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "Javascript",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Typescript",
-          active: true,
-          moved: 0,
-          link: "https://www.typescriptlang.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "PHP",
-          active: true,
-          moved: 0,
-          link: "http://www.php.net/"
-        },
-        {
-          ring: TRIAL,
-          label: "Python",
-          active: true,
-          moved: 0,
-          link: "https://www.python.org/"
-        },
-        {
-          ring: ASSESS,
-          label: "Golang",
-          active: true,
-          moved: 0,
-          link: "https://golang.org/"
-        },
-        {
-          ring: HOLD,
-          label: "Java",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "C#",
-          active: true,
-          moved: 0
-        },
-      ],
-    },
-    {
-      name: "Infrastructure & utilities",
-      entries: [
-        {
-          ring: ADOPT,
-          label: "Docker",
-          active: true,
-          moved: 0,
-          link: "https://www.docker.com/"
-        },
-        {
-          ring: ADOPT,
-          label: "Docker Compose",
-          active: true,
-          moved: 0,
-          link: "https://docs.docker.com/compose/overview/"
-        },
-        {
-          ring: ADOPT,
-          label: "Vagrant",
-          active: true,
-          moved: 0,
-          link: "https://www.vagrantup.com/"
-        },
-        {
-          ring: TRIAL,
-          label: "Rancher",
-          active: true,
-          moved: 0,
-          link: "https://rancher.com/"
-        },
-        {
-          ring: TRIAL,
-          label: "Kubernetes",
-          active: true,
-          moved: 0,
-          link: "https://kubernetes.io/"
-        },
-        {
-          ring: HOLD,
-          label: "Jenkins",
-          active: true,
-          moved: 0,
-          link: "https://jenkins.io/"
-        },
-        {
-          ring: TRIAL,
-          label: "Travis",
-          active: true,
-          moved: 0,
-          link: "https://travis-ci.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "Gitlab CI",
-          active: true,
-          moved: 0,
-          link: "https://about.gitlab.com/product/continuous-integration/"
-        },
-        {
-          ring: HOLD,
-          label: "Bitbucket pipelines",
-          active: true,
-          moved: 0,
-          link: "https://bitbucket.org/product/features/pipelines"
-        },
-        {
-          ring: ADOPT,
-          label: "Gitlab",
-          active: true,
-          moved: 0,
-          link: "https://about.gitlab.com/"
-        },
-        {
-          ring: ADOPT,
-          label: "JIRA",
-          active: true,
-          moved: 0,
-          link: "https://www.atlassian.com/software/jira"
-        },
-        {
-          ring: ADOPT,
-          label: "Slack",
-          active: true,
-          moved: 0,
-          link: "https://slack.com/"
-        },
-        {
-          ring: HOLD,
-          label: "Skype",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "draw.io",
-          active: true,
-          moved: 0,
-          link: "https://www.draw.io/"
-        },
-        {
-          ring: ADOPT,
-          label: "BalsamiQ",
-          active: true,
-          moved: 0,
-          link: "https://balsamiq.com/"
-        },
-        {
-          ring: ADOPT,
-          label: "XMind",
-          active: true,
-          moved: 0,
-          link: "https://www.xmind.net/"
-        },
-        {
-          ring: ADOPT,
-          label: "VSC",
-          active: true,
-          moved: 0,
-          link: "https://code.visualstudio.com/"
-        },
-        {
-          ring: ADOPT,
-          label: "PHP Storm",
-          active: true,
-          moved: 0,
-          link: "https://www.jetbrains.com/phpstorm/"
-        },
-        {
-          ring: ASSESS,
-          label: "Azure functions",
-          active: true,
-          moved: 0,
-          link: "https://azure.microsoft.com/en-us/services/functions/"
-        },
-        {
-          ring: ASSESS,
-          label: "AWS Lambda",
-          active: true,
-          moved: 0,
-          link: "https://aws.amazon.com/lambda/"
-        },
-        {
-          ring: ASSESS,
-          label: "AWS S3",
-          active: true,
-          moved: 0,
-          link: "https://aws.amazon.com/s3/"
-        },
-        {
-          ring: ASSESS,
-          label: "Minio",
-          active: true,
-          moved: 0,
-          link: "https://www.minio.io/"
-        },
-        {
-          ring: ADOPT,
-          label: "AWS EC2",
-          active: true,
-          moved: 0,
-          link: "https://aws.amazon.com/ec2/"
-        },
-        {
-          ring: ADOPT,
-          label: "Ubuntu",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Alpine",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Alpine",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Raspberry PI",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Intel Neural Compute Stick",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "AWS ECS",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "AWS EKS",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "AWS Fargate",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Trello",
-          active: true,
-          moved: 0
-        },
-      ]
-    },
-    {
-      name: "Frameworks, libraries & development tools",
-      entries: [
-        {
-          ring: ADOPT,
-          label: "EditorConfig",
-          active: true,
-          moved: 0,
-          link: "https://editorconfig.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "Browsersync",
-          active: true,
-          moved: 0,
-          link: "https://browsersync.io/"
-        },
-        {
-          ring: ADOPT,
-          label: "Supertest",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "RC",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "TypeDI",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Apollo Server",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Nodemon",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Winston",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Passport",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "SenecaJS",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Bower",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Strapi",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Puppeteer",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Mongoose",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Yarn",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "ESLint",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "TSLint",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "npm",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "grunt",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "gulp",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Rxjs",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Node.js",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Tensor flow",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Nest.js",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "ZendFramework",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Silex",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Slim",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Symfony",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "PHP Unit",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Mocha",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Jest",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "ExpressJS",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Lodash",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Dust.js",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "jQuery",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Serverless",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Moleculer",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "React",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "Vue.js",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Redux",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "Angular",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "MobX",
-          active: true,
-          moved: 0
-        },
-      ]
-    },
-    {
-      name: "Data Management",
-      entries: [
-        {
-          ring: ADOPT,
-          label: "MongoDB",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Elasticsearch",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "Redis",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "Memcached",
-          active: true,
-          moved: 0,
-          link: "https://memcached.org/"
-        },
-        {
-          ring: ASSESS,
-          label: "Aerospike",
-          active: true,
-          moved: 0,
-          link: "https://www.aerospike.com/"
-        },
-        {
-          ring: ASSESS,
-          label: "Apache Ignite",
-          active: true,
-          moved: 0,
-          link: "https://ignite.apache.org/"
-        },
-        {
-          ring: ASSESS,
-          label: "Apache PredictionIO",
-          active: true,
-          moved: 0,
-          link: "https://predictionio.apache.org/"
-        },
-        {
-          ring: ADOPT,
-          label: "Neo4j",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "RabbitMQ",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "xml",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "soap",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "MySql",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: HOLD,
-          label: "SQL Server",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ASSESS,
-          label: "MariaDB",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: TRIAL,
-          label: "etcd",
-          active: true,
-          moved: 0
-        },
-        {
-          ring: ADOPT,
-          label: "REST",
-          active: true,
-          moved: 0
-        },
-      ]
+const ALL_ENTRIES = [
+  {
+    "ring": "ADOPT",
+    "label": "Cypher",
+    "link": "https://neo4j.com/developer/cypher/",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ],
+  },
+  {
+    "ring": "ADOPT",
+    "label": "SQL",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "JSON Schema",
+    "link": "https://json-schema.org/",
+    "tags": [
+      "q0",
+      "language",
+      "development",
+      "test"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Swagger",
+    "link": "https://swagger.io/",
+    "tags": [
+      "q0",
+      "language",
+      "development",
+      "design"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "OpenAPI",
+    "link": "https://swagger.io/blog/news/announcing-openapi-3-0/",
+    "tags": [
+      "q0",
+      "language",
+      "development",
+      "design"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "GraphQL",
+    "link": "https://graphql.org/",
+    "tags": [
+      "q0",
+      "language",
+      "development",
+      "design"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Javascript",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Typescript",
+    "link": "https://www.typescriptlang.org/",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "PHP",
+    "link": "http://www.php.net/",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Python",
+    "link": "https://www.python.org/",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Golang",
+    "link": "https://golang.org/",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Java",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "C#",
+    "tags": [
+      "q0",
+      "language",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Docker",
+    "link": "https://www.docker.com/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Docker Compose",
+    "link": "https://docs.docker.com/compose/overview/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Vagrant",
+    "link": "https://www.vagrantup.com/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Rancher",
+    "link": "https://rancher.com/",
+    "tags": [
+      "q1",
+      "infrastructure",
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Kubernetes",
+    "link": "https://kubernetes.io/",
+    "tags": [
+      "q1",
+      "infrastructure",
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Jenkins",
+    "link": "https://jenkins.io/",
+    "tags": [
+      "q1",
+      "utility",
+      "CI",
+      "CD",
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Travis",
+    "link": "https://travis-ci.org/",
+    "tags": [
+      "q1",
+      "utility",
+      "CI",
+      "CD",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Gitlab CI",
+    "link": "https://about.gitlab.com/product/continuous-integration/",
+    "tags": [
+      "q1",
+      "utility",
+      "CI",
+      "CD",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Bitbucket pipelines",
+    "link": "https://bitbucket.org/product/features/pipelines",
+    "tags": [
+      "q1",
+      "utility",
+      "CI",
+      "CD",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Gitlab",
+    "link": "https://about.gitlab.com/",
+    "tags": [
+      "q1",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "JIRA",
+    "link": "https://www.atlassian.com/software/jira",
+    "tags": [
+      "q1",
+      "utility",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Slack",
+    "link": "https://slack.com/",
+    "tags": [
+      "q1",
+      "utility"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Skype",
+    "tags": [
+      "q1",
+      "utility"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "draw.io",
+    "link": "https://www.draw.io/",
+    "tags": [
+      "q1",
+      "utility",
+      "design"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "BalsamiQ",
+    "link": "https://balsamiq.com/",
+    "tags": [
+      "q1",
+      "utility",
+      "design"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "XMind",
+    "link": "https://www.xmind.net/",
+    "tags": [
+      "q1",
+      "utility",
+      "design"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "VSC",
+    "link": "https://code.visualstudio.com/",
+    "tags": [
+      "q1",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "PHP Storm",
+    "link": "https://www.jetbrains.com/phpstorm/",
+    "tags": [
+      "q1",
+      "utility",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Azure functions",
+    "link": "https://azure.microsoft.com/en-us/services/functions/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "AWS Lambda",
+    "link": "https://aws.amazon.com/lambda/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "AWS S3",
+    "link": "https://aws.amazon.com/s3/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "database"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Minio",
+    "link": "https://www.minio.io/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "database"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "AWS EC2",
+    "link": "https://aws.amazon.com/ec2/",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Ubuntu",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Alpine",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Raspberry PI",
+    "tags": [
+      "q1",
+      "infrastructure",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Intel Neural Compute Stick",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "iot",
+      "machine-learning",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "AWS ECS",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "AWS EKS",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "AWS Fargate",
+    "tags": [
+      "q1",
+      "infrastructure",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Trello",
+    "tags": [
+      "q1",
+      "utility"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "EditorConfig",
+    "link": "https://editorconfig.org/",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Browsersync",
+    "link": "https://browsersync.io/",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Supertest",
+    "tags": [
+      "q2",
+      "library",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "RC",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "TypeDI",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Apollo Server",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Nodemon",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Winston",
+    "link": "https://github.com/winstonjs/winston",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Passport",
+    "link": "http://www.passportjs.org/",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "SenecaJS",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Bower",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Webpack",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Strapi",
+    "link": "https://strapi.io/",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "KeystoneJS",
+    "link": "https://keystonejs.com/",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Puppeteer",
+    "link": "https://pptr.dev/",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Mongoose",
+    "link": "https://mongoosejs.com/",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Yarn",
+    "link": "https://yarnpkg.com/lang/en/",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "ESLint",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "TSLint",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "npm",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "grunt",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development",
+      "deployment"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "gulp",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Rxjs",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Node.js",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Tensor flow",
+    "tags": [
+      "q2",
+      "framework",
+      "machine-learning",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Nest.js",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "ZendFramework",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Silex",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Slim",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Symfony",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "PHP Unit",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development",
+      "test"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Mocha",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development",
+      "test"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Jest",
+    "tags": [
+      "q2",
+      "development-tool",
+      "development",
+      "test"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "ExpressJS",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Lodash",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Dust.js",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "jQuery",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Serverless",
+    "tags": [
+      "q2",
+      "framework",
+      "development",
+      "serverless"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Moleculer",
+    "tags": [
+      "q2",
+      "framework",
+      "development",
+      "microservices"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "React",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Vue.js",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Redux",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Angular",
+    "tags": [
+      "q2",
+      "framework",
+      "development"
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "MobX",
+    "tags": [
+      "q2",
+      "library",
+      "development"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "MongoDB",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Elasticsearch",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Redis",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "Memcached",
+    "link": "https://memcached.org/",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Aerospike",
+    "link": "https://www.aerospike.com/",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Apache Ignite",
+    "link": "https://ignite.apache.org/",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Apache PredictionIO",
+    "link": "https://predictionio.apache.org/",
+    "tags": [
+      "q3",
+      "database",
+      "machine-learning"
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Neo4j",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "RabbitMQ",
+    "tags": [
+      "q3",
+      "database",
+      "queue",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "xml",
+    "tags": [
+      "q3",
+      "data-structure",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "JSON",
+    "tags": [
+      "q3",
+      "data-structure",
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "soap",
+    "tags": [
+      "q3",
+      "protocol",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "MySql",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "HOLD",
+    "label": "SQL Server",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ASSESS",
+    "label": "MariaDB",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "etcd",
+    "tags": [
+      "q3",
+      "database",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "REST",
+    "tags": [
+      "q3",
+      "protocol",
+    ]
+  }
+];
+
+function normalizeEntry(entry, quadrantIndex) {
+  return {
+    ring: RING_NAME_TO_RING_INDEX.indexOf(entry.ring),
+    label: entry.label,
+    link: entry.link,
+    moved: (typeof(entry.moved) === 'undefined') ? 0 : entry.moved,
+    active: (typeof(entry.active) === 'undefined') ? 0 : entry.active,
+    quadrant: quadrantIndex,
+  }
+}
+
+function filterEntries(entries, includeTags) {
+  // when includeTags is not provided just return all entries
+  if (!(includeTags && includeTags.length) ) {
+    return entries;
+  }
+  return entries.filter((entry) => {
+    for( let includeTag of includeTags) {
+      if (entry.tags.indexOf(includeTag) >= 0) {
+        return true;
+      }
     }
-  ];
+    return false;
+  });
+}
 
-  return quadrants;
+function getQuadrantEntriesGroupedByTags(quadrantsList, excludeTags, includeTags) {
+  let filteredEntries = [];
+  let entries = filterEntries(ALL_ENTRIES, excludeTags, includeTags);
+  for (let entry of entries) {
+    for (let quadrantIndex in quadrantsList) {
+      let quadrantTags = quadrantsList[quadrantIndex].tags;
+
+      for (let quadrantTag of quadrantTags) {
+        if (entry.tags.indexOf(quadrantTag) >= 0) {
+          filteredEntries.push(normalizeEntry(entry, quadrantIndex))
+        }
+      }
+    }
+  }
+
+  return filteredEntries;
+}
+
+function getAllTags() {
+  let tags = {};
+  ALL_ENTRIES.forEach( (entry) => {
+    entry.tags.forEach(tag => {
+      tags[tag] = true;
+    })
+  });
+  return Object.keys(tags);
 }

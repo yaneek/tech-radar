@@ -7,10 +7,10 @@ const QUADRANTS = [
 ];
 
 const RINGS = [
-  { radius: 130 },
-  { radius: 220 },
-  { radius: 310 },
-  { radius: 400 }
+  { radius: 130, name: "ADOPT", color: "#93c47d" },
+  { radius: 220, name: "TRIAL", color: "#93d2c2" },
+  { radius: 310, name: "ASSESS", color: "#fbdb84" },
+  { radius: 400, name: "HOLD", color: "#efafa9" }
 ];
 
 const TITLE_OFFSET =
@@ -118,6 +118,20 @@ function segment(quadrantIndex, ringIndex) {
   }
 }
 
+function getRingConfigField(config, ringIndex, fieldName) {
+  return (config.rings && config.rings[ringIndex] && config.rings[ringIndex][fieldName])
+    ? config.rings[ringIndex][fieldName]
+    : RINGS[ringIndex][fieldName]
+}
+
+function getRingColor(config, ringIndex) {
+  return getRingConfigField(config, ringIndex, 'color')
+}
+
+function getRingName(config, ringIndex) {
+  return getRingConfigField(config, ringIndex, 'name')
+}
+
 function setEntriesPositions(config) {
   for (var entry of config.entries) {
     entry.segment = segment(entry.quadrant, entry.ring);
@@ -125,7 +139,7 @@ function setEntriesPositions(config) {
     entry.x = point.x;
     entry.y = point.y;
     entry.color = entry.active || config.print_layout ?
-      config.rings[entry.ring].color : config.colors.inactive;
+      getRingColor(config, entry.ring): config.colors.inactive;
   };
 }
 
@@ -229,18 +243,18 @@ function radar_visualization(config) {
     .style("stroke-width", 1);
 
   // draw rings
-  for (var entryIndex = 0; entryIndex < RINGS.length; entryIndex++) {
+  for (var ringIndex = 0; ringIndex < RINGS.length; ringIndex++) {
     grid.append("circle")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", RINGS[entryIndex].radius)
+      .attr("r", RINGS[ringIndex].radius)
       .style("fill", "none")
       .style("stroke", config.colors.grid)
       .style("stroke-width", 1);
     if (config.print_layout) {
       grid.append("text")
-        .text(config.rings[entryIndex].name)
-        .attr("y", -RINGS[entryIndex].radius + 62)
+        .text(getRingName(config, ringIndex))
+        .attr("y", -RINGS[ringIndex].radius + 62)
         .attr("text-anchor", "middle")
         .style("fill", "#e5e5e5")
         .style("font-family", "Arial, Helvetica")
@@ -250,8 +264,6 @@ function radar_visualization(config) {
         .style("user-select", "none");
     }
   }
-
-
 
   // draw title and legend (only in print layout)
   if (config.print_layout) {
@@ -276,7 +288,7 @@ function radar_visualization(config) {
     for (var quadrantIndex in QUADRANTS) {
       addQuadandLegend(legendContainer, quadrantIndex, config.quadrants[quadrantIndex].name);
       for (var ringIndex in RINGS) {
-        addQuadrantRingLegend(legendContainer, quadrantIndex, ringIndex, config.rings[ringIndex].name);
+        addQuadrantRingLegend(legendContainer, quadrantIndex, ringIndex, getRingName(config, ringIndex));
         legendContainer.selectAll(".legend" + quadrantIndex + ringIndex)
           .data(segmentedEntries[quadrantIndex][ringIndex])
           .enter()
