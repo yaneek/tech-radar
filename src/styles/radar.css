@@ -17,3 +17,15 @@ td {
   vertical-align: top;
   padding-right: 60px;
 }
+
+.entry-tag {
+  padding: 5px;
+  margin: 1px;
+  background-color: silver;
+}
+
+.entry-tag-selected {
+  padding: 5px;
+  margin: 1px;
+  background-color: darkorange;
+}

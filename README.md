@@ -2,8 +2,6 @@
 
 Private technology radar based on [Zalando's tech-radar](https://github.com/zalando/tech-radar)
 
-Configuration without any builds, only static html & js files
-
 ## Local Development
 
 1. install dependencies with yarn (or npm):
@@ -12,7 +10,13 @@ Configuration without any builds, only static html & js files
 yarn
 ```
 
-2. start local dev server:
+2. start compiler watch
+
+```
+yarn watch
+```
+
+3. start local dev server:
 
 ```
 yarn start

@@ -1,7 +1,7 @@
-const ADOPT = 0;
-const TRIAL = 1;
-const ASSESS = 2;
-const HOLD = 3;
+// const ADOPT = 0;
+// const TRIAL = 1;
+// const ASSESS = 2;
+// const HOLD = 3;
 const RING_NAME_TO_RING_INDEX = [
   'ADOPT',
   'TRIAL',
@@ -148,7 +148,9 @@ const ALL_ENTRIES = [
       "q1",
       "infrastructure",
       "utility",
-      "development"
+      "development",
+      "microservices",
+      "containerization"
     ]
   },
   {
@@ -159,7 +161,9 @@ const ALL_ENTRIES = [
       "q1",
       "infrastructure",
       "utility",
-      "development"
+      "development",
+      "microservices",
+      "containerization"
     ]
   },
   {
@@ -180,6 +184,7 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
+      "containerization"
     ]
   },
   {
@@ -189,6 +194,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
+      "microservices",
+      "containerization"
     ]
   },
   {
@@ -220,7 +227,6 @@ const ALL_ENTRIES = [
     "link": "https://about.gitlab.com/product/continuous-integration/",
     "tags": [
       "q1",
-      "utility",
       "CI",
       "CD",
       "development"
@@ -330,7 +336,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "serverless"
     ]
   },
   {
@@ -340,7 +347,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "serverless"
     ]
   },
   {
@@ -415,7 +423,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "containerization"
     ]
   },
   {
@@ -424,7 +433,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "containerization"
     ]
   },
   {
@@ -433,7 +443,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q1",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "containerization"
     ]
   },
   {
@@ -536,7 +547,8 @@ const ALL_ENTRIES = [
     "tags": [
       "q2",
       "framework",
-      "development"
+      "development",
+      "microservices"
     ]
   },
   {
@@ -1027,7 +1039,7 @@ function filterEntries(entries, includeTags) {
   });
 }
 
-function getQuadrantEntriesGroupedByTags(quadrantsList, excludeTags, includeTags) {
+export function getQuadrantEntriesGroupedByTags(quadrantsList, excludeTags, includeTags) {
   let filteredEntries = [];
   let entries = filterEntries(ALL_ENTRIES, excludeTags, includeTags);
   for (let entry of entries) {
@@ -1045,7 +1057,7 @@ function getQuadrantEntriesGroupedByTags(quadrantsList, excludeTags, includeTags
   return filteredEntries;
 }
 
-function getAllTags() {
+export function getAllTags() {
   let tags = {};
   ALL_ENTRIES.forEach( (entry) => {
     entry.tags.forEach(tag => {

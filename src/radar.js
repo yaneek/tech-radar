@@ -156,7 +156,7 @@ function viewbox(quadrant) {
   ].join(" ");
 }
 
-function radar_visualization(config) {
+export function radar_visualization(config) {
   function addQuadandLegend(legendContainer, quadrantIndex, caption) {
     legendContainer.append("text")
       .attr("transform", translate(
