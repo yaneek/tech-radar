@@ -1,5 +1,5 @@
 import {radar_visualization} from './radar';
-import {getQuadrantEntriesGroupedByTags} from './data';
+import {getQuadrantEntriesGroupedByTags} from '../../lib/EntriesRepository';
 
 function _deleteRadar() {
   var svg = d3.select("svg#radar");

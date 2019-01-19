@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import Tag from "./Tag.jsx";
 import '../styles/radar.css';
-import { getAllTags } from '../data';
-import { redrawRadar } from '../radar-actions';
+import { getAllTags } from '../lib/EntriesRepository';
+import { redrawRadar } from './tech-radar/radar-actions';
 
 class FilterContainer extends Component {
   constructor() {
