@@ -37,19 +37,19 @@ export function redrawRadar(currentTagFilter) {
     quadrants: [
       {
         name: "Languages",
-        tags: ["q0"]
+        tags: ["q0-languages"]
       },
       {
         name: "Infrastructure & utilities",
-        tags: ["q1"]
+        tags: ["q1-infrastructure"]
       },
       {
         name: "Frameworks, libraries & development tools",
-        tags: ["q2"]
+        tags: ["q2-frameworks"]
       },
       {
         name: "Data Management",
-        tags: ["q3"]
+        tags: ["q3-data-management"]
       },
     ]
   });
