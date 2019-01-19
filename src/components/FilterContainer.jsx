@@ -40,16 +40,14 @@ class FilterContainer extends Component {
       <>
         <div>
           Filter by tag:
-            <Tag
+          <Tag
             tag="all"
             onClick={() => {
               this.selectTag([]);
             }}
+            isSelected={this.state.selectedTags.length === 0}
           />
           {tags}
-        </div>
-        <div>
-          Selected tags: {this.state.selectedTags.join(', ')}
         </div>
       </>
     );
