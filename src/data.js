@@ -1,5 +1,3 @@
-import { TableHead } from "@material-ui/core";
-
 // const ADOPT = 0;
 // const TRIAL = 1;
 // const ASSESS = 2;
