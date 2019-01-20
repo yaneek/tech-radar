@@ -44,7 +44,7 @@ class AppContainer extends Component {
     });
     // im not sure how d3 works so i run update anyc
     new Promise((resolve) => {
-      redrawRadar(this.state.selectedTags);
+      redrawRadar(selectedTags);
       resolve();
     });
   }

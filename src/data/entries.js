@@ -981,6 +981,34 @@ export const ALL_ENTRIES = [
   },
   {
     "ring": "HOLD",
+    "label": "Interbase",
+    "tags": [
+      "q3-data-management",
+      "database",
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Loki.js",
+    "tags": [
+      "q3-data-management",
+      "database",
+      "library",
+    ],
+    "link": "http://lokijs.org/"
+  },
+  {
+    "ring": "ASSESS",
+    "label": "Consul",
+    "tags": [
+      "q3-data-management",
+      "database",
+      "service-discovery",
+    ],
+    "link": "https://www.consul.io/"
+  },
+  {
+    "ring": "HOLD",
     "label": "SQL Server",
     "tags": [
       "q3-data-management",
@@ -1001,6 +1029,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "service-discovery"
     ]
   },
   {
