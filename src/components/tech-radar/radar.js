@@ -311,9 +311,12 @@ export function radar_visualization(config) {
         .attr("transform", function (d, i) { return legend_transform(quadrantIndex, ringIndex, i); })
         .attr("class", "legend" + quadrantIndex + ringIndex)
         .attr("id", function (d, i) { return "legendItem" + d.id; })
-        .text(function (d, i) { return d.id + ". " + d.label; })
+        .text(function (d, i) { return d.label; })
         .style("font-family", "Arial, Helvetica")
         .style("font-size", "10")
+        .style("fill", (d) => {
+          return d.active ? 'black' : 'silver';
+        } )
         .on("mouseover", function (d) { showBubble(d); highlightLegendItem(d); })
         .on("mouseout", function (d) { hideBubble(d); unhighlightLegendItem(d); })
         ;

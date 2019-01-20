@@ -205,8 +205,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "utility",
-      "CI",
-      "CD",
+      "CI / CD",
     ]
   },
   {
@@ -216,8 +215,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "utility",
-      "CI",
-      "CD",
+      "CI / CD",
       "development"
     ]
   },
@@ -227,8 +225,7 @@ export const ALL_ENTRIES = [
     "link": "https://about.gitlab.com/product/continuous-integration/",
     "tags": [
       "q1-infrastructure",
-      "CI",
-      "CD",
+      "CI / CD",
       "development"
     ]
   },
@@ -239,8 +236,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "utility",
-      "CI",
-      "CD",
+      "CI / CD",
     ]
   },
   {
@@ -405,6 +401,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
+      "iot"
     ]
   },
   {
@@ -834,7 +831,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Vue.js",
     "tags": [
       "q2-frameworks",
