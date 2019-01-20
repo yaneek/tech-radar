@@ -1,13 +1,15 @@
 import { ALL_ENTRIES, RING_NAME_TO_RING_INDEX } from '../data/entries';
 
+let id = 1;
 function normalizeEntry(entry, quadrantIndex) {
   return {
     ring: RING_NAME_TO_RING_INDEX.indexOf(entry.ring),
     label: entry.label,
     link: entry.link,
     moved: (typeof(entry.moved) === 'undefined') ? 0 : entry.moved,
-    active: (typeof(entry.active) === 'undefined') ? 0 : entry.active,
+    active: (typeof(entry.active) === 'undefined') ? true : entry.active,
     quadrant: quadrantIndex,
+    id: id++,
   }
 }
 
@@ -16,17 +18,29 @@ function filterEntries(entries, includeTags) {
   if (!(includeTags && includeTags.length) ) {
     return entries;
   }
-  return entries.filter((entry) => {
+  // return entries.filter((entry) => {
+  //   for( let includeTag of includeTags) {
+  //     if (entry.tags.indexOf(includeTag) >= 0) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // });
+  return entries.map((entry) => {
     for( let includeTag of includeTags) {
       if (entry.tags.indexOf(includeTag) >= 0) {
-        return true;
+        return entry;
       }
     }
-    return false;
+    return {
+      ...entry,
+      active: false,
+    };
   });
 }
 
 export function getQuadrantEntriesGroupedByTags(quadrantsList, excludeTags, includeTags) {
+  id = 1;
   let filteredEntries = [];
   let entries = filterEntries(ALL_ENTRIES, excludeTags, includeTags);
   for (let entry of entries) {
