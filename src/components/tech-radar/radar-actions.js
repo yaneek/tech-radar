@@ -10,17 +10,15 @@ function _showRadar(options) {
   radar_visualization({
     svg_id: "radar",
     width: 1450,
-    height: 1000,
+    height: 800,
     colors: {
       background: "#fff",
       grid: "#bbb",
-      inactive: "#ddd"
+      inactive: "#eee"
     },
-    title: "Grzegorz Marchwiński - tech radar",
     quadrants: options.quadrants.map((quadrantItem) => {
       return { name: quadrantItem.name };
     }),
-    print_layout: true,
     // zoomed_quadrant: 0,
     //ENTRIES
     entries: getQuadrantEntriesGroupedByTags(
