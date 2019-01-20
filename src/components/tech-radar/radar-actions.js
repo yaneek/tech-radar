@@ -9,8 +9,6 @@ function _deleteRadar() {
 function _showRadar(options) {
   radar_visualization({
     svg_id: "radar",
-    width: 1450,
-    height: 800,
     colors: {
       background: "#fff",
       grid: "#bbb",
@@ -23,15 +21,19 @@ function _showRadar(options) {
     //ENTRIES
     entries: getQuadrantEntriesGroupedByTags(
       options.quadrants,
-      options.includeTags
+      options.includeTags,
+      options.includeRings,
     )
   });
 }
 
-export function redrawRadar(currentTagFilter) {
+export function redrawRadar(includeTags, includeRings) {
+  // console.log('tags', JSON.stringify(includeTags));
+  // console.log('rings', JSON.stringify(includeRings));
   _deleteRadar();
   _showRadar({
-    includeTags: currentTagFilter || [],
+    includeTags: includeTags || [],
+    includeRings: includeRings || [],
     quadrants: [
       {
         name: "Languages",

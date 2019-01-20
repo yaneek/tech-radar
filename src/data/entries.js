@@ -2,7 +2,7 @@
 // const TRIAL = 1;
 // const ASSESS = 2;
 // const HOLD = 3;
-export const RING_NAME_TO_RING_INDEX = [
+export const RING_NAMES = [
   'ADOPT',
   'TRIAL',
   'ASSESS',
