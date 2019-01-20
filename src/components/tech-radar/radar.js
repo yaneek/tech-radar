@@ -268,12 +268,12 @@ export function radar_visualization(config) {
   // draw title and legend (only in print layout)
   if (config.print_layout) {
 
-    // title
-    radar.append("text")
-      .attr("transform", translate(TITLE_OFFSET.x, TITLE_OFFSET.y))
-      .text(config.title)
-      .style("font-family", "Arial, Helvetica")
-      .style("font-size", "34");
+    // // title
+    // radar.append("text")
+    //   .attr("transform", translate(TITLE_OFFSET.x, TITLE_OFFSET.y))
+    //   .text(config.title)
+    //   .style("font-family", "Arial, Helvetica")
+    //   .style("font-size", "34");
 
     // footer
     radar.append("text")

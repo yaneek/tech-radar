@@ -1,56 +1,34 @@
-import React, { Component } from "react";
+import React from 'react';
 
-import Tag from "./Tag.jsx";
-import '../styles/radar.css';
-import { getAllTags } from '../lib/EntriesRepository';
-import { redrawRadar } from './tech-radar/radar-actions';
+import Tag from './Tag.jsx';
+import { Typography } from '@material-ui/core';
 
-class FilterContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      tags: getAllTags(),
-      selectedTags: [],
-    };
-  }
+const FilterContainer = ({tags, selectedTags, selectTags}) => {
+  const tagsComponents = tags.sort().map((tag) => {
+    return <Tag
+      tag={tag}
+      key={tag}
+      isSelected={selectedTags.indexOf(tag) >= 0}
+      onClick={() => {
+        selectTags([tag]);
+      }}
+    />
+  })
+  return (
+    <>
+      <Typography variant="h6">Filter by tag:</Typography>
 
-  selectTag(tags) {
-    this.setState({
-      selectedTags: tags
-    });
-    // im not sure how d3 works so i run update anyc
-    new Promise((resolve) => {
-      redrawRadar(tags);
-      resolve();
-    });
-  }
-
-  render() {
-    const tags = this.state.tags.sort().map((tag) => {
-      return <Tag
-        tag={tag}
-        key={tag}
-        isSelected={this.state.selectedTags.indexOf(tag) >= 0}
+      <Tag
+        tag='all'
         onClick={() => {
-          this.selectTag([tag]);
+          selectTags([]);
         }}
+        isSelected={selectedTags.length === 0}
       />
-    })
-    return (
-      <>
-        <div>
-          Filter by tag:
-          <Tag
-            tag="all"
-            onClick={() => {
-              this.selectTag([]);
-            }}
-            isSelected={this.state.selectedTags.length === 0}
-          />
-          {tags}
-        </div>
-      </>
-    );
-  }
+      {tagsComponents}
+
+    </>
+  );
 }
+
 export default FilterContainer;
