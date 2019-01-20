@@ -1,9 +1,9 @@
 // radial_min / radial_max are multiples of PI
 const QUADRANTS = [
-  { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
-  { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1 },
-  { radial_min: -1, radial_max: -0.5, factor_x: -1, factor_y: -1 },
-  { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 }
+  { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1, textAnchor: "end" },
+  { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1, textAnchor: "start" },
+  { radial_min: -1, radial_max: -0.5, factor_x: -1, factor_y: -1, textAnchor: "start" },
+  { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1, textAnchor: "end" }
 ];
 
 const RINGS = [
@@ -18,14 +18,32 @@ const LAST_RING_INDEX = RINGS.length - 1;
 const MAX_RING_RADIUS = RINGS[LAST_RING_INDEX].radius;
 
 const FOOTER_OFFSET =
-  { x: -675, y: 420 };
+  { x: -675, y: MAX_RING_RADIUS - 10 };
 
+const LEGEND_OFFSET_Y = 20;
+const LEGEND_OFFSET_X = 20;
+const LEGEND_WIDTH = 260;
 const LEGEND_OFFSET = [
-  { x: 450, y: 90 },
-  { x: -675, y: 90 },
-  { x: -675, y: -310 },
-  { x: 450, y: -310 }
+  {
+    x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
+    y: LEGEND_OFFSET_Y
+  },
+  {
+    x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
+    y: LEGEND_OFFSET_Y
+  },
+  {
+    x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
+    y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
+  },
+  {
+    x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
+    y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
+  }
 ];
+
+const TRIANGLE_POINTING_UP = "M -11,5 11,5 0,-13 z";
+const TRIANGLE_POINTING_DOWN = "M -11,-5 11,-5 0,13 z";
 
 // custom random number generator, to make random sequence reproducible
 // source: https://stackoverflow.com/questions/521295
@@ -141,7 +159,7 @@ function setEntriesPositions(config) {
     entry.x = point.x;
     entry.y = point.y;
     entry.color = entry.active ?
-      getRingColor(config, entry.ring): config.colors.inactive;
+      getRingColor(config, entry.ring) : config.colors.inactive;
   };
 }
 
@@ -150,7 +168,7 @@ function translate(x, y) {
 }
 
 function viewbox(quadrant) {
-  let coordinates =  [
+  let coordinates = [
     Math.max(0, QUADRANTS[quadrant].factor_x * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
     Math.max(0, QUADRANTS[quadrant].factor_y * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
     MAX_RING_RADIUS + 40,
@@ -164,9 +182,10 @@ export function radar_visualization(config) {
   function addQuadandLegend(legendContainer, quadrantIndex, caption) {
     legendContainer.append("text")
       .attr("transform", translate(
-        LEGEND_OFFSET[quadrantIndex].x,
-        LEGEND_OFFSET[quadrantIndex].y - 45
+        MAX_RING_RADIUS * QUADRANTS[quadrantIndex].factor_x,
+        (MAX_RING_RADIUS - 18) * QUADRANTS[quadrantIndex].factor_y,
       ))
+      .attr("text-anchor", QUADRANTS[quadrantIndex].textAnchor)
       .text(caption)
       .style("font-family", "Arial, Helvetica")
       .style("font-size", "18");
@@ -183,7 +202,7 @@ export function radar_visualization(config) {
 
   function legend_transform(quadrantIndex, ringIndex, legendIndex = null) {
     let dx = ringIndex < 2 ? 0 : 120;
-    let dy = (legendIndex == null ? -16 : legendIndex * 12);
+    let dy = (legendIndex == null ? 0 : 16 + legendIndex * 12);
     if (ringIndex % 2 === 1) {
       dy = dy + 36 + segmentedEntries[quadrantIndex][ringIndex - 1].length * 12;
     }
@@ -238,8 +257,8 @@ export function radar_visualization(config) {
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
   grid.append("line")
-    .attr("x1", -MAX_RING_RADIUS).attr("y1", 0)
-    .attr("x2", MAX_RING_RADIUS).attr("y2", 0)
+    .attr("x1", -1000).attr("y1", 0)
+    .attr("x2", 1000).attr("y2", 0)
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
 
@@ -381,11 +400,11 @@ export function radar_visualization(config) {
     // blip shape
     if (entryData.moved > 0) {
       blip.append("path")
-        .attr("d", "M -11,5 11,5 0,-13 z") // triangle pointing up
+        .attr("d", TRIANGLE_POINTING_UP) // triangle pointing up
         .style("fill", entryData.color);
     } else if (entryData.moved < 0) {
       blip.append("path")
-        .attr("d", "M -11,-5 11,-5 0,13 z") // triangle pointing down
+        .attr("d", TRIANGLE_POINTING_DOWN) // triangle pointing down
         .style("fill", entryData.color);
     } else {
       blip.append("circle")

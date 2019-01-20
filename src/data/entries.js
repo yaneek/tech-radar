@@ -80,7 +80,7 @@ export const ALL_ENTRIES = [
       "q0-languages",
       "language",
       "development"
-    ]
+    ],
   },
   {
     "ring": "ADOPT",
@@ -1012,7 +1012,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Material UI",
     "tags": [
       "q2-frameworks",

@@ -42,7 +42,7 @@ export function redrawRadar(currentTagFilter) {
         tags: ["q1-infrastructure"]
       },
       {
-        name: "Frameworks, libraries & development tools",
+        name: "Development tools",
         tags: ["q2-frameworks"]
       },
       {
