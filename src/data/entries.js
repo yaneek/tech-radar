@@ -1010,5 +1010,13 @@ export const ALL_ENTRIES = [
       "q3-data-management",
       "protocol",
     ]
-  }
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Material UI",
+    "tags": [
+      "q2-frameworks",
+      "library",
+    ]
+  },
 ];
