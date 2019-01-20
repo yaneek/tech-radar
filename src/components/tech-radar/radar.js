@@ -14,6 +14,9 @@ const RINGS = [
   // { radius: 440, name: "DEAD", color: "#efafa9" },
 ];
 
+const ORIGINAL_WIDTH = 1450;
+const ORIGINAL_HEIGHT = 800;
+
 const LAST_RING_INDEX = RINGS.length - 1;
 const MAX_RING_RADIUS = RINGS[LAST_RING_INDEX].radius;
 
@@ -238,14 +241,15 @@ export function radar_visualization(config) {
 
   let svg = d3.select("svg#" + config.svg_id)
     .style("background-color", config.colors.background)
-    .attr("width", config.width)
-    .attr("height", config.height);
+    // .attr("width", config.width)
+    // .attr("height", config.height)
+    ;
 
   let radar = svg.append("g");
   if ("zoomed_quadrant" in config) {
     svg.attr("viewBox", viewbox(config.zoomed_quadrant));
   } else {
-    radar.attr("transform", translate(config.width / 2, config.height / 2));
+    radar.attr("transform", translate(ORIGINAL_WIDTH / 2, ORIGINAL_HEIGHT / 2));
   }
 
   let grid = radar.append("g");

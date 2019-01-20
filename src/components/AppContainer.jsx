@@ -12,9 +12,30 @@ class AppContainer extends Component {
     this.state = {
       tags: getAllTags(),
       selectedTags: [],
+      date: new Date(),
     };
 
     this.selectTags = this.selectTags.bind(this);
+    // console.log('constructor');
+  }
+
+  componentDidMount() {
+    // console.log('componentDidMount');
+    this.timerID = setInterval(
+      () => this.tick(),
+      5000
+    );
+  }
+
+  componentWillUnmount() {
+    // console.log('componentWillUnmount');
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    // this.setState({
+    //   date: new Date()
+    // });
   }
 
   selectTags(selectedTags) {
@@ -23,12 +44,13 @@ class AppContainer extends Component {
     });
     // im not sure how d3 works so i run update anyc
     new Promise((resolve) => {
-      redrawRadar(selectedTags);
+      redrawRadar(this.state.selectedTags);
       resolve();
     });
   }
 
   render() {
+    // console.log('render');
     return (
       <>
         <Typography variant="h1">Technology radar</Typography>
