@@ -103,7 +103,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Python",
     "link": "https://www.python.org/",
     "tags": [
@@ -188,7 +188,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Kubernetes",
     "link": "https://kubernetes.io/",
     "tags": [
@@ -396,7 +396,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Raspberry PI",
     "tags": [
       "q1-infrastructure",
@@ -802,7 +802,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "Serverless",
     "tags": [
       "q2-frameworks",
@@ -1021,7 +1021,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    "ring": "TRIAL",
+    "ring": "ASSESS",
     "label": "etcd",
     "tags": [
       "q3-data-management",

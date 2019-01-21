@@ -13,7 +13,7 @@ class AppContainer extends Component {
       tags: getAllTags(),
       selectedTags: [],
       rings: {
-        'I know it quite well': ['ADOPT', 'TRIAL'],
+        'I know it quite well': ['ADOPT', 'TRIAL', 'HOLD'],
         'I would like to know it better': ['TRIAL', 'ASSESS'],
         'ADOPT': ['ADOPT'],
         'TRIAL': ['TRIAL'],
