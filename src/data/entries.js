@@ -241,6 +241,26 @@ export const ALL_ENTRIES = [
   },
   {
     "ring": "ADOPT",
+    "label": "JMeter",
+    "link": "https://jmeter.apache.org/",
+    "tags": [
+      "q1-infrastructure",
+      "utility",
+      "test",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Postman",
+    "link": "https://www.getpostman.com/",
+    "tags": [
+      "q1-infrastructure",
+      "utility",
+      "test",
+    ]
+  },
+  {
+    "ring": "ADOPT",
     "label": "Gitlab",
     "link": "https://about.gitlab.com/",
     "tags": [
@@ -767,6 +787,17 @@ export const ALL_ENTRIES = [
   },
   {
     "ring": "ADOPT",
+    "label": "Chai",
+    "tags": [
+      "q2-frameworks",
+      "library",
+      "development",
+      "test"
+    ],
+    link: "https://www.chaijs.com/"
+  },
+  {
+    "ring": "ADOPT",
     "label": "ExpressJS",
     "tags": [
       "q2-frameworks",
@@ -1044,5 +1075,130 @@ export const ALL_ENTRIES = [
       "q2-frameworks",
       "library",
     ]
+  },
+
+
+  // ----- metodologie
+  {
+    "ring": "ADOPT",
+    "label": "Git Flow",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    link: "https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow"
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Agile Manifesto",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    link: "https://agilemanifesto.org/iso/en/principles.html"
+  },
+  {
+    "ring": "TRIAL",
+    "label": "XP",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    link: "http://www.extremeprogramming.org/rules.html"
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Scrum",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "TDD",
+    "tags": [
+      "q0-languages",
+      "methodology",
+      "test"
+    ],
+    "link": "https://en.wikipedia.org/wiki/Test-driven_development"
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Lean",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    "link": "https://leankit.com/learn/lean/principles-of-lean-development/"
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Angular Style Commits",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    "link": "https://gist.github.com/stephenparish/9941e89d80e2bc58a153"
+  },
+  {
+    "ring": "ADOPT",
+    "label": "API Driven Development",
+    "tags": [
+      "q0-languages",
+      "methodology",
+      "design",
+    ],
+    "link": "https://blog.restcase.com/api-driven-development/"
+  },
+  {
+    "ring": "ADOPT",
+    "label": "SOLID",
+    "tags": [
+      "q0-languages",
+      "principle",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "KISS",
+    "tags": [
+      "q0-languages",
+      "principle",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "DRY",
+    "tags": [
+      "q0-languages",
+      "principle",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "OOP",
+    "tags": [
+      "q0-languages",
+      "paradigm",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Functional programming",
+    "tags": [
+      "q0-languages",
+      "paradigm",
+    ]
+  },
+  {
+    "ring": "ADOPT",
+    "label": "Remote manifesto",
+    "tags": [
+      "q0-languages",
+      "methodology",
+    ],
+    "link": "https://about.gitlab.com/2015/04/08/the-remote-manifesto/"
   },
 ];

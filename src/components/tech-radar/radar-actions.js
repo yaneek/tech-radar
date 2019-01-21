@@ -36,7 +36,7 @@ export function redrawRadar(includeTags, includeRings) {
     includeRings: includeRings || [],
     quadrants: [
       {
-        name: "Languages",
+        name: "Languages & methodologies",
         tags: ["q0-languages"]
       },
       {
