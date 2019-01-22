@@ -17,7 +17,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q0-languages",
       "language",
-      "development"
+      "development",
     ],
   },
   {
@@ -26,7 +26,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q0-languages",
       "language",
-      "development"
+      "development",
+      "sql"
     ]
   },
   {
@@ -150,7 +151,8 @@ export const ALL_ENTRIES = [
       "utility",
       "development",
       "microservices",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -163,7 +165,8 @@ export const ALL_ENTRIES = [
       "utility",
       "development",
       "microservices",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -174,7 +177,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "utility",
-      "development"
+      "development",
+      "dev-ops",
     ]
   },
   {
@@ -184,7 +188,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -195,7 +200,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "microservices",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -206,6 +212,7 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "utility",
       "CI / CD",
+      "dev-ops",
     ]
   },
   {
@@ -216,7 +223,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "utility",
       "CI / CD",
-      "development"
+      "development",
+      "dev-ops",
     ]
   },
   {
@@ -226,7 +234,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "CI / CD",
-      "development"
+      "development",
+      "dev-ops",
     ]
   },
   {
@@ -237,6 +246,7 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "utility",
       "CI / CD",
+      "dev-ops",
     ]
   },
   {
@@ -353,7 +363,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "deployment",
-      "serverless"
+      "serverless",
+      "dev-ops",
     ]
   },
   {
@@ -364,7 +375,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "deployment",
-      "serverless"
+      "serverless",
+      "dev-ops",
     ]
   },
   {
@@ -374,7 +386,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "database"
+      "database",
+      "dev-ops",
     ]
   },
   {
@@ -384,7 +397,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "database"
+      "database",
+      "dev-ops",
     ]
   },
   {
@@ -394,7 +408,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "dev-ops",
     ]
   },
   {
@@ -403,7 +418,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "development"
+      "development",
+      "dev-ops",
     ]
   },
   {
@@ -412,7 +428,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q1-infrastructure",
       "infrastructure",
-      "deployment"
+      "deployment",
+      "dev-ops",
     ]
   },
   {
@@ -441,7 +458,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "deployment",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -451,7 +469,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "deployment",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -461,7 +480,8 @@ export const ALL_ENTRIES = [
       "q1-infrastructure",
       "infrastructure",
       "deployment",
-      "containerization"
+      "containerization",
+      "dev-ops",
     ]
   },
   {
@@ -903,11 +923,21 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "no-sql",
     ]
   },
   {
     "ring": "ADOPT",
     "label": "Elasticsearch",
+    "tags": [
+      "q3-data-management",
+      "database",
+      "no-sql",
+    ]
+  },
+  {
+    "ring": "TRIAL",
+    "label": "Kibana",
     "tags": [
       "q3-data-management",
       "database",
@@ -919,6 +949,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "no-sql",
     ]
   },
   {
@@ -937,6 +968,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "no-sql",
+      "sql",
     ]
   },
   {
@@ -946,6 +979,8 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "sql",
+      "no-sql",
     ]
   },
   {
@@ -1005,6 +1040,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "sql"
     ]
   },
   {
@@ -1013,6 +1049,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "sql",
     ]
   },
   {
@@ -1022,6 +1059,7 @@ export const ALL_ENTRIES = [
       "q3-data-management",
       "database",
       "library",
+      "no-sql",
     ],
     "link": "http://lokijs.org/"
   },
@@ -1032,6 +1070,8 @@ export const ALL_ENTRIES = [
       "q3-data-management",
       "database",
       "service-discovery",
+      "dev-ops",
+      "no-sql",
     ],
     "link": "https://www.consul.io/"
   },
@@ -1041,6 +1081,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "sql"
     ]
   },
   {
@@ -1049,6 +1090,7 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
+      "sql"
     ]
   },
   {
@@ -1057,7 +1099,9 @@ export const ALL_ENTRIES = [
     "tags": [
       "q3-data-management",
       "database",
-      "service-discovery"
+      "service-discovery",
+      "dev-ops",
+      "no-sql",
     ]
   },
   {
