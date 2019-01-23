@@ -3,12 +3,16 @@ import { Typography } from '@material-ui/core';
 
 const Description = () => (
   <>
-    <Typography variant="h3">
+    <Typography variant="h6">
       What is the Tech Radar?
     </Typography>
 
     <Typography variant="subtitle2">
-      The Tech Radar is a list of technologies, complemented by an assessment result, called <em>ring
+      This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
+      work of ThoughtWorks</a> and <a href="https://github.com/zalando/tech-radar">Zalando's project</a>.
+    </Typography>
+    <Typography variant="subtitle2">
+      The Tech Radar is a list of technologies, methodologies,  complemented by an assessment result, called <em>ring
         assignment</em>. I use four rings with the following semantics:
     </Typography>
 
@@ -31,8 +35,8 @@ const Description = () => (
       <li>
         <Typography variant="body2">
           <strong>ASSESS</strong> &mdash; Technologies that are promising and have clear potential value-add for me;
-          I read, learn and monitor such technolologies. Sometimes i started a prototyping effort ASSESS
-          technologies have higher risks.
+          I read, learn and monitor such technolologies. Sometimes i started a prototyping effort.
+          ASSESS technologies have higher risks.
           </Typography>
       </li>
 
@@ -45,18 +49,8 @@ const Description = () => (
       </li>
     </ul>
 
-    <Typography variant="h3">
-      What is the purpose?
-    </Typography>
-
-    <Typography variant="subtitle2">
-      This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
-      work of ThoughtWorks</a>.
-    </Typography>
-
-    <Typography variant="body2">
-      <em>BTW, if you would like to create your own Tech Radar &mdash; I have <a href="https://github.com/yaneek/tech-radar">open
-      sourced the code</a> to generate this visualization.</em>
+    <Typography align="center">
+      &copy; 2019 Grzegorz Marchwiński
     </Typography>
   </>
 )

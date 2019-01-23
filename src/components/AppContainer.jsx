@@ -33,10 +33,9 @@ class AppContainer extends Component {
       selectedTags
     });
     // im not sure how d3 works so i run update anyc
-    new Promise((resolve) => {
+    setTimeout(() => {
       redrawRadar(selectedTags, this.state.selectedRingsValues);
-      resolve();
-    });
+    }, 0);
   }
 
 
@@ -48,17 +47,21 @@ class AppContainer extends Component {
       selectedRingsValues,
     });
 
-    new Promise((resolve) => {
+    setTimeout(() => {
       redrawRadar(this.state.selectedTags, selectedRingsValues);
-      resolve();
-    });
+    }, 0);
   }
 
   render() {
     return (
       <>
-        <Typography variant="h1">Technology radar</Typography>
-        <Typography variant="h2">Grzegorz Marchwiński</Typography>
+        <Typography variant="h4">
+          Technology radar - Grzegorz Marchwiński
+        </Typography>
+        <Typography variant="subtitle1">
+          <a className="social-icon" title="Fork me at github" href="https://github.com/yaneek/tech-radar" target="_BLANK" ><img alt="github" src="./img/GitHub-Mark-32px.png"></img></a>
+          <a className="social-icon" title="Linkedin" href="https://www.linkedin.com/in/grzegorz-marchwinski/" target="_BLANK" ><img alt="github" src="./img/In-Black-34px-R.png"></img></a>
+        </Typography>
         <Typography variant="h6">Filter by tag:</Typography>
         <FilterContainer
           tags={this.state.tags.sort()}
