@@ -4,17 +4,17 @@ import {radar_visualization} from './radar';
 import {getQuadrantEntriesGroupedByTags} from '../../lib/EntriesRepository';
 
 function _deleteRadar() {
-  var svg = d3.select("svg#radar");
-  svg.selectAll("*").remove();
+  var svg = d3.select('svg#radar');
+  svg.selectAll('*').remove();
 }
 
 function _showRadar(options) {
   radar_visualization({
-    svg_id: "radar",
+    svg_id: 'radar',
     colors: {
-      background: "#fff",
-      grid: "#bbb",
-      inactive: "#eee"
+      background: '#fff',
+      grid: '#bbb',
+      inactive: '#eee'
     },
     quadrants: options.quadrants.map((quadrantItem) => {
       return { name: quadrantItem.name };
@@ -38,20 +38,20 @@ export function redrawRadar(includeTags, includeRings) {
     includeRings: includeRings || [],
     quadrants: [
       {
-        name: "Languages & methodologies",
-        tags: ["q0-languages"]
+        name: 'Languages & methodologies',
+        tags: ['q0-languages'],
       },
       {
-        name: "Infrastructure & utilities",
-        tags: ["q1-infrastructure"]
+        name: 'Infrastructure & utilities',
+        tags: ['q1-infrastructure'],
       },
       {
-        name: "Development tools",
-        tags: ["q2-frameworks"]
+        name: 'Development tools',
+        tags: ['q2-frameworks'],
       },
       {
-        name: "Data Management",
-        tags: ["q3-data-management"]
+        name: 'Data Management',
+        tags: ['q3-data-management']
       },
     ]
   });

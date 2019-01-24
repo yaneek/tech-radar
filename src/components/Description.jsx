@@ -9,7 +9,7 @@ const Description = () => (
 
     <Typography variant="subtitle2">
       This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
-      work of ThoughtWorks</a> and <a href="https://github.com/zalando/tech-radar">Zalando's project</a>.
+      work of ThoughtWorks</a> and <a href="https://github.com/zalando/tech-radar">Zalando&#39;s project</a>.
     </Typography>
     <Typography variant="subtitle2">
       The Tech Radar is a list of technologies, methodologies,  complemented by an assessment result, called <em>ring
