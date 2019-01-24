@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 import {radar_visualization} from './radar';
 import {getQuadrantEntriesGroupedByTags} from '../../lib/EntriesRepository';
 

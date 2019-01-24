@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 // radial_min / radial_max are multiples of PI
 const QUADRANTS = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1, textAnchor: "end" },

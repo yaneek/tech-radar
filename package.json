@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.0",
+    "d3": "^5.7.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
