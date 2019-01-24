@@ -23,6 +23,8 @@
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
+    "eslint": "^5.12.1",
+    "eslint-plugin-react": "^7.12.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.3",
@@ -34,6 +36,7 @@
     "start": "browser-sync docs -w",
     "clean": "rimraf ./docs/*",
     "watch": "webpack --watch --mode development",
-    "build": "yarn run clean && cross-env NODE_ENV=production webpack --mode production"
+    "build": "yarn run clean && cross-env NODE_ENV=production webpack --mode production",
+    "lint:js": "eslint src/**/*.{js,jsx}"
   }
 }
