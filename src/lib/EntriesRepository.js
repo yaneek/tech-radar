@@ -1,10 +1,11 @@
-import { ALL_ENTRIES, RING_NAMES } from '../data/entries';
+import { ALL_ENTRIES } from '../data/entries';
 import { QUADRANTS } from '../data/quadrants';
+import { RING_NAMES, RINGS, CUSTOM_RING_FILTERS } from '../data/rings';
 
 let id = 1;
 function normalizeEntry(entry, quadrantIndex) {
   return {
-    ring: RING_NAMES.indexOf(entry.ring),
+    ring: getRingNames().indexOf(entry.ring),
     label: entry.label,
     link: entry.link,
     moved: (typeof(entry.moved) === 'undefined') ? 0 : entry.moved,
@@ -51,7 +52,7 @@ function filterByRings(entries, includeRings) {
 export function getQuadrantEntriesGroupedByTags(quadrantsList, includeTags, includeRings) {
   id = 1;
   let filteredEntries = [];
-  let entries = filterByRings( filterByTags(ALL_ENTRIES, includeTags), includeRings );
+  let entries = filterByRings( filterByTags(getEntries(), includeTags), includeRings );
 
   for (let entry of entries) {
     for (let quadrantIndex in quadrantsList) {
@@ -82,10 +83,30 @@ export function getAllTags() {
   });
 }
 
-export function getRings() {
+export function getRingNames() {
   return RING_NAMES;
+}
+
+export function getRings() {
+  return RINGS;
 }
 
 export function getQuadrants() {
   return QUADRANTS;
+}
+
+export function getEntries() {
+  return ALL_ENTRIES;
+}
+
+export function getRingFilters() {
+  const singleRingFilters = {};
+  getRingNames().forEach( (ringName) => {
+    singleRingFilters[ringName] = [ringName];
+  });
+
+  return {
+    ...CUSTOM_RING_FILTERS,
+    ...singleRingFilters,
+  }
 }

@@ -1,14 +1,3 @@
-// const ADOPT = 0;
-// const TRIAL = 1;
-// const ASSESS = 2;
-// const HOLD = 3;
-export const RING_NAMES = [
-  'ADOPT',
-  'TRIAL',
-  'ASSESS',
-  'HOLD',
-];
-
 export const ALL_ENTRIES = [
   {
     'ring': 'ADOPT',

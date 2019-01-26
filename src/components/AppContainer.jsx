@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
 
-import { getAllTags } from '../lib/EntriesRepository';
+import { getAllTags, getRingFilters } from '../lib/EntriesRepository';
 import FilterContainer from './FilterContainer.jsx';
 import '../styles/radar.css';
 import { redrawRadar } from './tech-radar/radar-actions';
@@ -9,17 +9,11 @@ import { redrawRadar } from './tech-radar/radar-actions';
 class AppContainer extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       tags: getAllTags(),
       selectedTags: [],
-      rings: {
-        'I know it quite well': ['ADOPT', 'TRIAL', 'HOLD'],
-        'I would like to know it better': ['TRIAL', 'ASSESS'],
-        'ADOPT': ['ADOPT'],
-        'TRIAL': ['TRIAL'],
-        'ASSESS': ['ASSESS'],
-        'HOLD': ['HOLD'],
-      },
+      rings: getRingFilters(),
       selectedRings: [],
     };
 

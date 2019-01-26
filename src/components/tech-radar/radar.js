@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { getRings } from '../../lib/EntriesRepository';
 
 // radial_min / radial_max are multiples of PI
 const QUADRANTS = [
@@ -8,13 +9,7 @@ const QUADRANTS = [
   { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1, textAnchor: 'end' }
 ];
 
-const RINGS = [
-  { radius: 180, name: 'ADOPT', color: '#93c47d' },
-  { radius: 260, name: 'TRIAL', color: '#93d2c2' },
-  { radius: 330, name: 'ASSESS', color: '#fbdb84' },
-  { radius: 390, name: 'HOLD', color: '#efafa9' },
-  // { radius: 440, name: "DEAD", color: "#efafa9" },
-];
+const RINGS = getRings();
 
 const ORIGINAL_WIDTH = 1450;
 const ORIGINAL_HEIGHT = 800;
