@@ -1,26 +1,22 @@
 import * as d3 from 'd3';
 
 import {radar_visualization} from './radar';
-import {getQuadrantEntriesGroupedByTags} from '../../lib/EntriesRepository';
+import {getQuadrantEntriesGroupedByTags, getQuadrants} from '../../lib/EntriesRepository';
 
-function _deleteRadar() {
-  var svg = d3.select('svg#radar');
+function _deleteRadar(radarID) {
+  var svg = d3.select('svg#' + radarID);
   svg.selectAll('*').remove();
 }
 
 function _showRadar(options) {
   radar_visualization({
-    svg_id: 'radar',
+    svg_id: options.radarID,
     colors: {
       background: '#fff',
       grid: '#bbb',
       inactive: '#eee'
     },
-    quadrants: options.quadrants.map((quadrantItem) => {
-      return { name: quadrantItem.name };
-    }),
-    // zoomed_quadrant: 0,
-    //ENTRIES
+    quadrants: options.quadrants,
     entries: getQuadrantEntriesGroupedByTags(
       options.quadrants,
       options.includeTags,
@@ -29,30 +25,12 @@ function _showRadar(options) {
   });
 }
 
-export function redrawRadar(includeTags, includeRings) {
-  // console.log('tags', JSON.stringify(includeTags));
-  // console.log('rings', JSON.stringify(includeRings));
-  _deleteRadar();
+export function redrawRadar(radarID, includeTags, includeRings) {
+  _deleteRadar(radarID);
   _showRadar({
+    radarID,
     includeTags: includeTags || [],
     includeRings: includeRings || [],
-    quadrants: [
-      {
-        name: 'Languages & methodologies',
-        tags: ['q0-languages'],
-      },
-      {
-        name: 'Infrastructure & utilities',
-        tags: ['q1-infrastructure'],
-      },
-      {
-        name: 'Development tools',
-        tags: ['q2-frameworks'],
-      },
-      {
-        name: 'Data Management',
-        tags: ['q3-data-management']
-      },
-    ]
+    quadrants: getQuadrants(),
   });
 }

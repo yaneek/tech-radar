@@ -21,34 +21,29 @@ class AppContainer extends Component {
         'HOLD': ['HOLD'],
       },
       selectedRings: [],
-      selectedRingsValues: [],
     };
 
     this.selectTags = this.selectTags.bind(this);
     this.selectRings = this.selectRings.bind(this);
+    this.renderExternalRadar = this.renderExternalRadar.bind(this);
   }
 
   selectTags(selectedTags) {
-    this.setState({
-      selectedTags
-    });
-    // im not sure how d3 works so i run update anyc
-    setTimeout(() => {
-      redrawRadar(selectedTags, this.state.selectedRingsValues);
-    }, 0);
+    this.setState({selectedTags}, this.renderExternalRadar );
   }
 
-
   selectRings(selectedRings) {
-    const selectedRingsValues = this.state.rings[selectedRings[0]] || [];
+    this.setState({ selectedRings}, this.renderExternalRadar );
+  }
 
-    this.setState({
-      selectedRings,
-      selectedRingsValues,
-    });
+  componentDidMount() {
+    this.renderExternalRadar();
+  }
 
+  renderExternalRadar() {
     setTimeout(() => {
-      redrawRadar(this.state.selectedTags, selectedRingsValues);
+      const selectedRingsValues = this.state.rings[this.state.selectedRings[0]] || [];
+      redrawRadar(this.props.radarId, this.state.selectedTags, selectedRingsValues);
     }, 0);
   }
 

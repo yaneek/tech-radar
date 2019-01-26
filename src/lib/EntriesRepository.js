@@ -1,4 +1,5 @@
 import { ALL_ENTRIES, RING_NAMES } from '../data/entries';
+import { QUADRANTS } from '../data/quadrants';
 
 let id = 1;
 function normalizeEntry(entry, quadrantIndex) {
@@ -83,4 +84,8 @@ export function getAllTags() {
 
 export function getRings() {
   return RING_NAMES;
+}
+
+export function getQuadrants() {
+  return QUADRANTS;
 }
