@@ -7,6 +7,7 @@ export const ALL_ENTRIES = [
       'q0-languages',
       'language',
       'development',
+      'graph',
     ],
   },
   {
@@ -60,7 +61,8 @@ export const ALL_ENTRIES = [
       'q0-languages',
       'language',
       'development',
-      'design'
+      'design',
+      'graph',
     ]
   },
   {
@@ -100,6 +102,16 @@ export const ALL_ENTRIES = [
       'q0-languages',
       'language',
       'development'
+    ]
+  },
+  {
+    'ring': 'ADOPT',
+    'label': 'Bash',
+    'tags': [
+      'q0-languages',
+      'language',
+      'development',
+      'dev-ops'
     ]
   },
   {
@@ -354,6 +366,7 @@ export const ALL_ENTRIES = [
       'deployment',
       'serverless',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -366,6 +379,7 @@ export const ALL_ENTRIES = [
       'deployment',
       'serverless',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -377,6 +391,7 @@ export const ALL_ENTRIES = [
       'infrastructure',
       'database',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -399,6 +414,7 @@ export const ALL_ENTRIES = [
       'infrastructure',
       'deployment',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -449,6 +465,7 @@ export const ALL_ENTRIES = [
       'deployment',
       'containerization',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -460,6 +477,7 @@ export const ALL_ENTRIES = [
       'deployment',
       'containerization',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -471,6 +489,7 @@ export const ALL_ENTRIES = [
       'deployment',
       'containerization',
       'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -942,6 +961,15 @@ export const ALL_ENTRIES = [
     ]
   },
   {
+    'ring': 'ASSESS',
+    'label': 'Redis Graph',
+    'tags': [
+      'q3-data-management',
+      'database',
+      'graph',
+    ]
+  },
+  {
     'ring': 'HOLD',
     'label': 'Memcached',
     'link': 'https://memcached.org/',
@@ -973,7 +1001,7 @@ export const ALL_ENTRIES = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'TRIAL',
     'label': 'Apache PredictionIO',
     'link': 'https://predictionio.apache.org/',
     'tags': [
@@ -988,6 +1016,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q3-data-management',
       'database',
+      'graph',
     ]
   },
   {
@@ -1102,6 +1131,14 @@ export const ALL_ENTRIES = [
     ]
   },
   {
+    'ring': 'ADOPT',
+    'label': 'oAuth2',
+    'tags': [
+      'q3-data-management',
+      'protocol',
+    ]
+  },
+  {
     'ring': 'ASSESS',
     'label': 'Material UI',
     'tags': [
@@ -1127,6 +1164,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q0-languages',
       'methodology',
+      'agile',
     ],
     link: 'https://agilemanifesto.org/iso/en/principles.html'
   },
@@ -1136,6 +1174,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q0-languages',
       'methodology',
+      'agile',
     ],
     link: 'http://www.extremeprogramming.org/rules.html'
   },
@@ -1145,6 +1184,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q0-languages',
       'methodology',
+      'agile',
     ]
   },
   {
@@ -1163,6 +1203,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q0-languages',
       'methodology',
+      'agile',
     ],
     'link': 'https://leankit.com/learn/lean/principles-of-lean-development/'
   },
@@ -1231,6 +1272,7 @@ export const ALL_ENTRIES = [
     'tags': [
       'q0-languages',
       'methodology',
+      'agile',
     ],
     'link': 'https://about.gitlab.com/2015/04/08/the-remote-manifesto/'
   },
