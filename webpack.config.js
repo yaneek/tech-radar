@@ -4,7 +4,8 @@ const path = require('path');
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, 'docs')
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'main_[hash]'
   },
   module: {
     rules: [
