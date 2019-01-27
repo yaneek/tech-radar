@@ -3,9 +3,24 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path');
 
 module.exports = {
+  entry: {
+    'main': './src/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'docs'),
-    filename: 'main_[hash]'
+    filename: '[name].[contenthash].js',
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          enforce: true
+        },
+      }
+    }
   },
   module: {
     rules: [
@@ -38,7 +53,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       // {from: 'src/vendor', to: 'vendor'},
-      {from: 'src/img', to: 'img'},
+      { from: 'src/img', to: 'img' },
     ], {})
   ],
   devServer: {
