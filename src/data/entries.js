@@ -539,6 +539,26 @@ export const ALL_ENTRIES = [
       'development'
     ]
   },
+  // {
+  //   'ring': 'ADOPT',
+  //   'label': 'Moment.js',
+  //   'tags': [
+  //     'q2-frameworks',
+  //     'library',
+  //     'development'
+  //   ],
+  //   link: 'https://momentjs.com/',
+  // },
+  // {
+  //   'ring': 'ADOPT',
+  //   'label': 'Luxon',
+  //   'tags': [
+  //     'q2-frameworks',
+  //     'library',
+  //     'development'
+  //   ],
+  //   link: 'https://moment.github.io/luxon/',
+  // },
   {
     'ring': 'TRIAL',
     'label': 'TypeDI',
