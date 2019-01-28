@@ -1,36 +1,26 @@
 import * as d3 from 'd3';
 
 import {radar_visualization} from './radar';
-import {getQuadrantEntriesGroupedByTags, getQuadrants} from '../../lib/EntriesRepository';
 
-function _deleteRadar(radarID) {
-  var svg = d3.select('svg#' + radarID);
+function _deleteRadar(radarId) {
+  var svg = d3.select('svg#' + radarId);
   svg.selectAll('*').remove();
 }
 
 function _showRadar(options) {
   radar_visualization({
-    svg_id: options.radarID,
+    svg_id: options.radarId,
     colors: {
       background: '#fff',
       grid: '#bbb',
       inactive: '#eee'
     },
     quadrants: options.quadrants,
-    entries: getQuadrantEntriesGroupedByTags(
-      options.quadrants,
-      options.includeTags,
-      options.includeRings,
-    )
+    entries: options.entries,
   });
 }
 
-export function redrawRadar(radarID, includeTags, includeRings) {
-  _deleteRadar(radarID);
-  _showRadar({
-    radarID,
-    includeTags: includeTags || [],
-    includeRings: includeRings || [],
-    quadrants: getQuadrants(),
-  });
+export function redrawRadar(options) {
+  _deleteRadar(options.radarId);
+  _showRadar(options);
 }

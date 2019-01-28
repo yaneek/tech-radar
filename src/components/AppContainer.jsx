@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
 
-import { getAllTags, getRingFilters } from '../lib/EntriesRepository';
+import { getAllTags, getRingFilters, getQuadrants, getQuadrantEntriesGroupedByTags } from '../lib/EntriesRepository';
 import FilterContainer from './FilterContainer.jsx';
 import '../styles/radar.css';
 import { redrawRadar } from './tech-radar/radar-actions';
@@ -9,12 +9,15 @@ import { redrawRadar } from './tech-radar/radar-actions';
 class AppContainer extends Component {
   constructor(props) {
     super(props);
+    const quadrants = getQuadrants();
 
     this.state = {
       tags: getAllTags(),
       selectedTags: [],
       rings: getRingFilters(),
       selectedRings: [],
+      quadrants,
+      entries: getQuadrantEntriesGroupedByTags(quadrants, [], []),
     };
 
     this.selectTags = this.selectTags.bind(this);
@@ -25,11 +28,11 @@ class AppContainer extends Component {
   selectTags(selectedTags) {
     this.setState({selectedTags}, this.renderExternalRadar );
   }
-
+  
   selectRings(selectedRings) {
     this.setState({ selectedRings}, this.renderExternalRadar );
   }
-
+  
   componentDidMount() {
     this.renderExternalRadar();
   }
@@ -37,7 +40,12 @@ class AppContainer extends Component {
   renderExternalRadar() {
     setTimeout(() => {
       const selectedRingsValues = this.state.rings[this.state.selectedRings[0]] || [];
-      redrawRadar(this.props.radarId, this.state.selectedTags, selectedRingsValues);
+      const entries =  getQuadrantEntriesGroupedByTags(this.state.quadrants, this.state.selectedTags, selectedRingsValues);
+      redrawRadar( {
+        radarId: this.props.radarId,
+        quadrants: this.state.quadrants,
+        entries,
+      });
     }, 0);
   }
 
