@@ -6,7 +6,7 @@ branches:
   only:
   - master
 script:
-  - yarn lint:js
+  - yarn lint
   - yarn build
 
 deploy:

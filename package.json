@@ -1,7 +1,7 @@
 {
-  "name": "zalando-tech-radar",
+  "name": "yankee-tech-radar",
   "version": "2019.1.1",
-  "description": "Visualizing our technology choices",
+  "description": "Visualizing technology choices",
   "homepage": "/tech-radar",
   "repository": "https://github.com/yaneek/tech-radar.git",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "yarn lint:js",
     "lint:js": "eslint src/**/*.{js,jsx}"
   },
   "browserslist": [
