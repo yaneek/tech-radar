@@ -15,6 +15,6 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: false
   target-branch: gh-pages
-  local-dir: docs
+  local-dir: build
   on:
     branch: master
