@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'babel-polyfill';
 import 'react-app-polyfill/ie11';
 
-import AppContainer from './components/AppContainer.jsx';
+import { AppContainer } from './components/AppContainer.tsx';
 import Description from './components/Description.jsx';
 
 ReactDOM.render(<AppContainer radarId="radar"/>, document.getElementById('app'))
