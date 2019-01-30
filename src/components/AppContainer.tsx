@@ -6,6 +6,7 @@ import FilterContainer from './FilterContainer.jsx';
 import '../styles/radar.css';
 import { redrawRadar } from './tech-radar/radar-actions';
 import { IQuadrant } from '../data/IQuadrant';
+import { Header } from './Header';
 
 interface IAppProps {
   radarId: string;
@@ -64,25 +65,20 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
 
   render = () => (
     <>
-      <Typography variant="h4">
-        Technology radar - Grzegorz Marchwiński
-      </Typography>
-      <Typography variant="subtitle1">
-        <a className="social-icon" title="Fork me at github" href="https://github.com/yaneek/tech-radar" target="_BLANK" rel="noopener noreferrer"><img alt="github" src="./img/GitHub-Mark-32px.png"></img></a>
-        <a className="social-icon" title="Linkedin" href="https://www.linkedin.com/in/grzegorz-marchwinski/" target="_BLANK" rel="noopener noreferrer" ><img alt="github" src="./img/In-Black-34px-R.png"></img></a>
-      </Typography>
-      <FilterContainer
-        caption="Filter by tag"
-        tags={this.state.tags.sort()}
-        selectedTags={this.state.selectedTags}
-        selectTags={this.selectTags}
-      />
-      <FilterContainer
-        caption="Filter by ring"
-        tags={Object.keys(this.state.rings)}
-        selectedTags={this.state.selectedRings}
-        selectTags={this.selectRings}
-      />
+      <Header>
+        <FilterContainer
+          caption="Filter by tag"
+          tags={this.state.tags.sort()}
+          selectedTags={this.state.selectedTags}
+          selectTags={this.selectTags}
+        />
+        <FilterContainer
+          caption="Filter by ring"
+          tags={Object.keys(this.state.rings)}
+          selectedTags={this.state.selectedRings}
+          selectTags={this.selectRings}
+        />
+      </Header>
     </>
   )
 }
