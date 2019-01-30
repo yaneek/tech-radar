@@ -28,11 +28,11 @@ class AppContainer extends Component {
   selectTags(selectedTags) {
     this.setState({selectedTags}, this.renderExternalRadar );
   }
-  
+
   selectRings(selectedRings) {
     this.setState({ selectedRings}, this.renderExternalRadar );
   }
-  
+
   componentDidMount() {
     this.renderExternalRadar();
   }
@@ -59,14 +59,14 @@ class AppContainer extends Component {
           <a className="social-icon" title="Fork me at github" href="https://github.com/yaneek/tech-radar" target="_BLANK" rel="noopener noreferrer"><img alt="github" src="./img/GitHub-Mark-32px.png"></img></a>
           <a className="social-icon" title="Linkedin" href="https://www.linkedin.com/in/grzegorz-marchwinski/" target="_BLANK" rel="noopener noreferrer" ><img alt="github" src="./img/In-Black-34px-R.png"></img></a>
         </Typography>
-        <Typography variant="h6">Filter by tag:</Typography>
         <FilterContainer
+          caption="Filter by tag"
           tags={this.state.tags.sort()}
           selectedTags={this.state.selectedTags}
           selectTags={this.selectTags}
         />
-        <Typography variant="h6">Filter by ring:</Typography>
         <FilterContainer
+          caption="Filter by ring"
           tags={Object.keys(this.state.rings)}
           selectedTags={this.state.selectedRings}
           selectTags={this.selectRings}

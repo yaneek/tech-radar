@@ -1,8 +1,9 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 
 import Tag from './Tag.jsx';
 
-const FilterContainer = ({tags, selectedTags, selectTags}) => {
+const FilterContainer = ({caption, tags, selectedTags, selectTags}) => {
   const tagsComponents = tags.map((tag) => {
     return <Tag
       tag={tag}
@@ -15,6 +16,7 @@ const FilterContainer = ({tags, selectedTags, selectTags}) => {
   })
   return (
     <>
+      <Typography variant="h6">{caption}:</Typography>
       <Tag
         tag='all'
         onClick={() => {
