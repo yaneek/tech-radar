@@ -39,11 +39,11 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
   }
 
   selectTags = (selectedTags: string[]) => {
-    this.setState({selectedTags}, this.renderExternalRadar );
+    this.setState({ selectedTags }, this.renderExternalRadar);
   }
 
   selectRings = (selectedRings: string[]) => {
-    this.setState({ selectedRings}, this.renderExternalRadar );
+    this.setState({ selectedRings }, this.renderExternalRadar);
   }
 
   componentDidMount() {
@@ -53,8 +53,8 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
   renderExternalRadar = () => {
     setTimeout(() => {
       const selectedRingsValues = this.state.rings[this.state.selectedRings[0]] || [];
-      const entries =  getQuadrantEntriesGroupedByTags(this.state.quadrants, this.state.selectedTags, selectedRingsValues);
-      redrawRadar( {
+      const entries = getQuadrantEntriesGroupedByTags(this.state.quadrants, this.state.selectedTags, selectedRingsValues);
+      redrawRadar({
         radarId: this.props.radarId,
         quadrants: this.state.quadrants,
         entries,
