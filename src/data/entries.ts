@@ -1,4 +1,6 @@
-export const ALL_ENTRIES = [
+import { IEntry } from '../types/IEntry';
+
+export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'Cypher',

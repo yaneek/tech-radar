@@ -1,27 +1,26 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 
 import { getAllTags, getRingFilters, getQuadrants, getQuadrantEntriesGroupedByTags } from '../lib/EntriesRepository';
 import FilterContainer from './FilterContainer.jsx';
 import '../styles/radar.css';
 import { redrawRadar } from './tech-radar/radar-actions';
-import { IQuadrant } from '../data/IQuadrant';
+import { IQuadrant } from '../types/IQuadrant';
 import { Header } from './Header';
+import { IRadarEntry } from '../types/IRadarEntry';
+import { RingFilter } from '../types/RingFilter';
+import { RingType } from '../types/RingType';
 
 interface IAppProps {
   radarId: string;
 }
 
 interface IAppState {
-  // @TODO add type
-  tags: any[],
+  tags: string[],
   selectedTags: string[],
-  // @TODO add type
-  rings: any,
-  selectedRings: string[],
+  rings: RingFilter,
+  selectedRings: RingType[],
   quadrants: IQuadrant[],
-  // @TODO add type
-  entries: any,
+  entries: IRadarEntry[],
 };
 
 export class AppContainer extends React.Component<IAppProps, IAppState>{
@@ -43,7 +42,7 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
     this.setState({ selectedTags }, this.renderExternalRadar);
   }
 
-  selectRings = (selectedRings: string[]) => {
+  selectRings = (selectedRings: RingType[]) => {
     this.setState({ selectedRings }, this.renderExternalRadar);
   }
 

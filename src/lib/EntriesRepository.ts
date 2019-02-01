@@ -2,8 +2,14 @@ import { ALL_ENTRIES } from '../data/entries';
 import { QUADRANTS } from '../data/quadrants';
 import { RING_NAMES, RINGS, CUSTOM_RING_FILTERS } from '../data/rings';
 
+import { IEntry } from '../types/IEntry';
+import { IRadarEntry } from '../types/IRadarEntry';
+import { IQuadrant } from '../types/IQuadrant';
+import { IRing } from '../types/IRing';
+import { RingFilter } from '../types/RingFilter';
+
 let id = 1;
-function normalizeEntry(entry, quadrantIndex) {
+function normalizeEntry(entry: IEntry, quadrantIndex: number): IRadarEntry {
   return {
     ring: getRingNames().indexOf(entry.ring),
     label: entry.label,
@@ -15,7 +21,7 @@ function normalizeEntry(entry, quadrantIndex) {
   }
 }
 
-function filterByTags(entries, includeTags) {
+function filterByTags(entries: IEntry[], includeTags: string[]): IEntry[] {
   // when includeTags is not provided just return all entries
   if (!(includeTags && includeTags.length) ) {
     return entries;
@@ -33,7 +39,7 @@ function filterByTags(entries, includeTags) {
   });
 }
 
-function filterByRings(entries, includeRings) {
+function filterByRings(entries: IEntry[], includeRings: string[]): IEntry[] {
   if (!(includeRings && includeRings.length) ) {
     return entries;
   }
@@ -49,15 +55,15 @@ function filterByRings(entries, includeRings) {
   });
 }
 
-export function getQuadrantEntriesGroupedByTags(quadrantsList, includeTags, includeRings) {
+export function getQuadrantEntriesGroupedByTags(
+  quadrantsList: IQuadrant[], includeTags: string[], includeRings: string[]
+) {
   id = 1;
-  let filteredEntries = [];
+  let filteredEntries: IRadarEntry[] = [];
   let entries = filterByRings( filterByTags(getEntries(), includeTags), includeRings );
-
   for (let entry of entries) {
-    for (let quadrantIndex in quadrantsList) {
+    for (let quadrantIndex = 0; quadrantIndex <  quadrantsList.length; quadrantIndex++ ) {
       let quadrantTags = quadrantsList[quadrantIndex].tags;
-
       for (let quadrantTag of quadrantTags) {
         if (entry.tags.indexOf(quadrantTag) >= 0) {
           filteredEntries.push(normalizeEntry(entry, quadrantIndex))
@@ -69,8 +75,8 @@ export function getQuadrantEntriesGroupedByTags(quadrantsList, includeTags, incl
   return filteredEntries;
 }
 
-export function getAllTags() {
-  let tagKeys = {};
+export function getAllTags(): string[] {
+  let tagKeys: Record<string, boolean> = {};
   ALL_ENTRIES.forEach( (entry) => {
     entry.tags.forEach(tag => {
       tagKeys[tag] = true;
@@ -87,20 +93,20 @@ export function getRingNames() {
   return RING_NAMES;
 }
 
-export function getRings() {
+export function getRings(): IRing[] {
   return RINGS;
 }
 
-export function getQuadrants() {
+export function getQuadrants(): IQuadrant[] {
   return QUADRANTS;
 }
 
-export function getEntries() {
+export function getEntries(): IEntry[] {
   return ALL_ENTRIES;
 }
 
-export function getRingFilters() {
-  const singleRingFilters = {};
+export function getRingFilters(): RingFilter {
+  const singleRingFilters: RingFilter = {};
   getRingNames().forEach( (ringName) => {
     singleRingFilters[ringName] = [ringName];
   });

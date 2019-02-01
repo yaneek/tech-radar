@@ -1,8 +1,8 @@
-// const ADOPT = 0;
-// const TRIAL = 1;
-// const ASSESS = 2;
-// const HOLD = 3;
-export const RINGS = [
+import { IRing } from '../types/IRing';
+import { RingFilter } from '../types/RingFilter';
+import { RingType } from '../types/RingType';
+
+export const RINGS: IRing[] = [
   { radius: 180, name: 'ADOPT', color: '#93c47d' },
   { radius: 260, name: 'TRIAL', color: '#93d2c2' },
   { radius: 330, name: 'ASSESS', color: '#fbdb84' },
@@ -10,11 +10,11 @@ export const RINGS = [
   // { radius: 440, name: 'DEAD', color: '#efafa9' },
 ];
 
-export const RING_NAMES = RINGS.map( (ring) => {
+export const RING_NAMES: RingType[] = RINGS.map( (ring) => {
   return ring.name;
 })
 
-export const CUSTOM_RING_FILTERS = {
+export const CUSTOM_RING_FILTERS: RingFilter = {
   'I know it quite well': ['ADOPT', 'TRIAL', 'HOLD'],
   'I would like to know it better': ['TRIAL', 'ASSESS'],
 };
