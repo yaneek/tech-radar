@@ -160,16 +160,16 @@ function segment(quadrantIndex: number, ringIndex: number) {
   }
 }
 
-function getRingConfigField(config: RadarOptions, ringIndex: number, fieldName: keyof IRing): string {
+function getRingConfigField(ringIndex: number, fieldName: keyof IRing): string {
   return RINGS[ringIndex][fieldName].toString();
 }
 
-function getRingColor(config: RadarOptions, ringIndex: number) {
-  return getRingConfigField(config, ringIndex, 'color')
+function getRingColor(ringIndex: number) {
+  return getRingConfigField(ringIndex, 'color')
 }
 
-function getRingName(config: RadarOptions, ringIndex: number) {
-  return getRingConfigField(config, ringIndex, 'name')
+function getRingName(ringIndex: number) {
+  return getRingConfigField(ringIndex, 'name')
 }
 
 function setEntriesPositions(config: RadarOptions) {
@@ -178,8 +178,7 @@ function setEntriesPositions(config: RadarOptions) {
     let point = entry.segment.random();
     entry.x = point.x;
     entry.y = point.y;
-    entry.color = entry.active ?
-      getRingColor(config, entry.ring) : config.colors.inactive;
+    entry.color = entry.active ? getRingColor(entry.ring) : config.colors.inactive;
   }
 }
 
@@ -238,8 +237,10 @@ export function radar_visualization(config: RadarOptions) {
 
   function partitionEntries() {
     let segmentedEntries = new Array(QUADRANTS.length);
+    // @TODO remove for...in for arrays
     for (let quadrantIndex in QUADRANTS) {
       segmentedEntries[quadrantIndex] = new Array(RINGS.length);
+      // @TODO remove for...in for arrays
       for (let ringIndex in RINGS) {
         segmentedEntries[quadrantIndex][ringIndex] = [];
       }
@@ -297,7 +298,7 @@ export function radar_visualization(config: RadarOptions) {
       .style('stroke', config.colors.grid)
       .style('stroke-width', 1);
     grid.append('text')
-      .text(getRingName(config, ringIndex))
+      .text(getRingName(ringIndex))
       .attr('y', -RINGS[ringIndex].radius + 62)
       .attr('text-anchor', 'middle')
       .style('fill', '#e5e5e5')
@@ -321,7 +322,7 @@ export function radar_visualization(config: RadarOptions) {
   for (let quadrantIndex = 0; quadrantIndex < QUADRANTS.length; quadrantIndex++) {
     addQuadandLegend(legendContainer, quadrantIndex, config.quadrants[quadrantIndex].name);
     for (let ringIndex = 0; ringIndex < RINGS.length; ringIndex++) {
-      addQuadrantRingLegend(legendContainer, quadrantIndex, ringIndex, getRingName(config, ringIndex));
+      addQuadrantRingLegend(legendContainer, quadrantIndex, ringIndex, getRingName(ringIndex));
       legendContainer.selectAll('.legend' + quadrantIndex + ringIndex)
         .data(segmentedEntries[quadrantIndex][ringIndex])
         .enter()
@@ -473,3 +474,11 @@ export function radar_visualization(config: RadarOptions) {
     .force('collision', d3.forceCollide().radius(12).strength(0.85))
     .on('tick', ticked);
 }
+
+// export class Radar {
+//   constructor(private config: RadarOptions) {}
+
+//   render() {
+//     // todo
+//   }
+// }
