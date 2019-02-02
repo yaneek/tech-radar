@@ -5,6 +5,8 @@ import { IQuadrant } from '../../types/IQuadrant';
 import { IRadarEntry } from '../../types/IRadarEntry';
 import { IRing } from '../../types/IRing';
 
+// @TODO remove 'any' type
+
 type Point2D = { x: number, y: number };
 type RadarOptions = {
   svg_id: string;

@@ -6,6 +6,7 @@ export interface IRadarEntry {
   quadrant: number;
   moved: number;
   id: number;
+  // @TODO remove any
   segment?: any;
   x?: number;
   y?: number;
