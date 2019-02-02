@@ -6,4 +6,8 @@ export interface IRadarEntry {
   quadrant: number;
   moved: number;
   id: number;
+  segment?: any;
+  x?: number;
+  y?: number;
+  color?: string;
 }
