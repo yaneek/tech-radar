@@ -9,6 +9,7 @@ import { Header } from './Header';
 import { IRadarEntry } from '../types/IRadarEntry';
 import { RingFilter } from '../types/RingFilter';
 import { RingType } from '../types/RingType';
+import { EntryList } from './EntryList';
 
 interface IAppProps {
   radarId: string;
@@ -39,25 +40,30 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
   }
 
   selectTags = (selectedTags: string[]) => {
-    this.setState({ selectedTags }, this.renderExternalRadar);
+    this.setState({ selectedTags }, this.fetchEntries);
   }
 
   selectRings = (selectedRings: RingType[]) => {
-    this.setState({ selectedRings }, this.renderExternalRadar);
+    this.setState({ selectedRings }, this.fetchEntries);
   }
 
   componentDidMount() {
     this.renderExternalRadar();
   }
 
+  fetchEntries = () => {
+    const selectedRingsValues = this.state.rings[this.state.selectedRings[0]] || [];
+    const entries = getQuadrantEntriesGroupedByTags(this.state.quadrants, this.state.selectedTags, selectedRingsValues);
+    this.setState({ entries }, this.renderExternalRadar);
+  }
+
   renderExternalRadar = () => {
     setTimeout(() => {
-      const selectedRingsValues = this.state.rings[this.state.selectedRings[0]] || [];
-      const entries = getQuadrantEntriesGroupedByTags(this.state.quadrants, this.state.selectedTags, selectedRingsValues);
+
       redrawRadar({
         radarId: this.props.radarId,
         quadrants: this.state.quadrants,
-        entries,
+        entries: this.state.entries,
       });
     }, 0);
   }
@@ -78,6 +84,7 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
           selectTags={this.selectRings}
         />
       </Header>
+      {/* <EntryList entries={this.state.entries} /> */}
     </>
   )
 }
