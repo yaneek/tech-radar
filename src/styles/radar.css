@@ -4,8 +4,14 @@
 
 .entry {
   font-size: 9px;
+  color: black
 }
 
 .entry-disabled {
-  color: red;
+  color: #CCC;
+}
+
+.entry-list {
+  column-count: 6;
+  column-width: 120px;
 }

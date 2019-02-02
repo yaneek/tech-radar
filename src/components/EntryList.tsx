@@ -3,10 +3,16 @@ import React from 'react';
 import { IRadarEntry } from '../types/IRadarEntry';
 import { Entry } from './Entry';
 
-// type EntryListProps = { entries: IRadarEntry[] };
+type EntryListProps = { entries: IRadarEntry[] };
 
-export const EntryList = ({ entries }: any) => {
-  return entries.map((entry: any) => {
-    return <Entry entry={entry} key={entry.id} />
-  })
-};
+export class EntryList extends React.Component<EntryListProps> {
+  render() {
+    const entryList = this.props.entries.map((entry: any) => {
+      return <Entry entry={entry} key={entry.id} />
+    })
+
+    return (
+      <div className="entry-list">{entryList}</div>
+    )
+  }
+}

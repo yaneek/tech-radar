@@ -7,7 +7,7 @@ interface IEntryProps {
 }
 
 export const Entry = ({ entry }: IEntryProps) => (
-  <div className="entry">
-    <a href={entry.link}>{entry.label}</a>{entry.active ? '+' : '-'}
+  <div>
+    <a className={entry.active ? 'entry' : 'entry entry-disabled'} href={entry.link}>{entry.label}</a>
   </div>
 );
