@@ -12,11 +12,13 @@
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "d3": "^5.7.0",
+    "lodash.intersection": "^4.4.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@types/d3": "^5.7.0",
+    "@types/lodash.intersection": "^4.4.4",
     "@types/react": "^16.7.22",
     "@types/react-dom": "^16.0.11",
     "babel-polyfill": "^6.26.0",

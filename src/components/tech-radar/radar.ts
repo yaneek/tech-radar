@@ -9,7 +9,7 @@ import { IRing } from '../../types/IRing';
 
 type Point2D = { x: number, y: number };
 type RadarOptions = {
-  svg_id: string;
+  radarId: string;
   colors: {
     background: string;
     grid: string;
@@ -17,6 +17,7 @@ type RadarOptions = {
   };
   quadrants: IQuadrant[];
   entries: IRadarEntry[];
+  rings: IRing[];
   zoomed_quadrant?: number;
 };
 type d3g = d3.Selection<SVGGElement, {}, HTMLElement, any>;
@@ -29,40 +30,11 @@ const QUADRANTS = [
   { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1, textAnchor: 'end' }
 ];
 
-const QUADRANT_INDEXES = [0, 1, 2, 3];
-
-const RINGS = getRings();
-
 const ORIGINAL_WIDTH = 1450;
 const ORIGINAL_HEIGHT = 800;
-
-const LAST_RING_INDEX = RINGS.length - 1;
-const MAX_RING_RADIUS = RINGS[LAST_RING_INDEX].radius;
-
-const FOOTER_OFFSET =
-  { x: -675, y: MAX_RING_RADIUS - 10 };
-
 const LEGEND_OFFSET_Y = 20;
 const LEGEND_OFFSET_X = 20;
 const LEGEND_WIDTH = 260;
-const LEGEND_OFFSET = [
-  {
-    x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
-    y: LEGEND_OFFSET_Y
-  },
-  {
-    x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
-    y: LEGEND_OFFSET_Y
-  },
-  {
-    x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
-    y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
-  },
-  {
-    x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
-    y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
-  }
-];
 
 const TRIANGLE_POINTING_UP = 'M -11,5 11,5 0,-13 z';
 const TRIANGLE_POINTING_DOWN = 'M -11,-5 11,-5 0,13 z';
@@ -120,84 +92,82 @@ function bounded_box(point: Point2D, min: Point2D, max: Point2D): Point2D {
   }
 }
 
-function segment(quadrantIndex: number, ringIndex: number) {
-  let polar_min = {
-    t: QUADRANTS[quadrantIndex].radial_min * Math.PI,
-    r: ringIndex === 0 ? 30 : RINGS[ringIndex - 1].radius
-  };
-  let polar_max = {
-    t: QUADRANTS[quadrantIndex].radial_max * Math.PI,
-    r: RINGS[ringIndex].radius
-  };
-  let cartesian_min = {
-    x: 15 * QUADRANTS[quadrantIndex].factor_x,
-    y: 15 * QUADRANTS[quadrantIndex].factor_y
-  };
-
-  let cartesian_max = {
-    x: RINGS[LAST_RING_INDEX].radius * QUADRANTS[quadrantIndex].factor_x,
-    y: RINGS[LAST_RING_INDEX].radius * QUADRANTS[quadrantIndex].factor_y
-  };
-  return {
-    clipx: function (d: Point2D) {
-      let c = bounded_box(d, cartesian_min, cartesian_max);
-      let p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
-      d.x = cartesian(p).x; // adjust data too!
-      return d.x;
-    },
-    clipy: function (d: Point2D) {
-      let c = bounded_box(d, cartesian_min, cartesian_max);
-      let p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
-      d.y = cartesian(p).y; // adjust data too!
-      return d.y;
-    },
-    random: function () {
-      return cartesian({
-        t: random_between(polar_min.t, polar_max.t),
-        r: normal_between(polar_min.r, polar_max.r)
-      });
-    }
-  }
-}
-
-function getRingConfigField(ringIndex: number, fieldName: keyof IRing): string {
-  return RINGS[ringIndex][fieldName].toString();
-}
-
-function getRingColor(ringIndex: number) {
-  return getRingConfigField(ringIndex, 'color')
-}
-
-function getRingName(ringIndex: number) {
-  return getRingConfigField(ringIndex, 'name')
-}
-
-function setEntriesPositions(config: RadarOptions) {
-  for (let entry of config.entries) {
-    entry.segment = segment(entry.quadrant, entry.ring);
-    let point = entry.segment.random();
-    entry.x = point.x;
-    entry.y = point.y;
-    entry.color = entry.active ? getRingColor(entry.ring) : config.colors.inactive;
-  }
-}
-
 function translate(x: number, y: number): string {
   return 'translate(' + x + ',' + y + ')';
 }
 
-function viewbox(quadrantIndex: number): string {
-  let coordinates = [
-    Math.max(0, QUADRANTS[quadrantIndex].factor_x * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
-    Math.max(0, QUADRANTS[quadrantIndex].factor_y * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
-    MAX_RING_RADIUS + 40,
-    MAX_RING_RADIUS + 40
-  ].join(' ');
+export function showRadar(config: RadarOptions) {
+  const RINGS = config.rings;
 
-  return coordinates;
-}
+  const LAST_RING_INDEX = RINGS.length - 1;
+  const MAX_RING_RADIUS = RINGS[LAST_RING_INDEX].radius;
 
-export function radar_visualization(config: RadarOptions) {
+  const FOOTER_OFFSET =
+    { x: -675, y: MAX_RING_RADIUS - 10 };
+
+  const LEGEND_OFFSET = [
+    {
+      x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
+      y: LEGEND_OFFSET_Y
+    },
+    {
+      x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
+      y: LEGEND_OFFSET_Y
+    },
+    {
+      x: -MAX_RING_RADIUS - LEGEND_WIDTH - LEGEND_OFFSET_X,
+      y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
+    },
+    {
+      x: MAX_RING_RADIUS + LEGEND_OFFSET_X,
+      y: -MAX_RING_RADIUS + LEGEND_OFFSET_Y
+    }
+  ];
+
+  function segment(quadrantIndex: number, ringIndex: number) {
+    let polar_min = {
+      t: QUADRANTS[quadrantIndex].radial_min * Math.PI,
+      r: ringIndex === 0 ? 30 : RINGS[ringIndex - 1].radius
+    };
+    let polar_max = {
+      t: QUADRANTS[quadrantIndex].radial_max * Math.PI,
+      r: RINGS[ringIndex].radius
+    };
+    let cartesian_min = {
+      x: 15 * QUADRANTS[quadrantIndex].factor_x,
+      y: 15 * QUADRANTS[quadrantIndex].factor_y
+    };
+
+    let cartesian_max = {
+      x: RINGS[LAST_RING_INDEX].radius * QUADRANTS[quadrantIndex].factor_x,
+      y: RINGS[LAST_RING_INDEX].radius * QUADRANTS[quadrantIndex].factor_y
+    };
+    return {
+      clipx: function (d: Point2D) {
+        let c = bounded_box(d, cartesian_min, cartesian_max);
+        let p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
+        d.x = cartesian(p).x; // adjust data too!
+        return d.x;
+      },
+      clipy: function (d: Point2D) {
+        let c = bounded_box(d, cartesian_min, cartesian_max);
+        let p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
+        d.y = cartesian(p).y; // adjust data too!
+        return d.y;
+      },
+      random: function () {
+        return cartesian({
+          t: random_between(polar_min.t, polar_max.t),
+          r: normal_between(polar_min.r, polar_max.r)
+        });
+      }
+    }
+  }
+
+  function getRingConfigField(ringIndex: number, fieldName: keyof IRing): string {
+    return RINGS[ringIndex][fieldName].toString();
+  }
+
   function addQuadandLegend(legendContainer: d3g, quadrantIndex: number, caption: string): void {
     legendContainer.append('text')
       .attr('transform', translate(
@@ -253,6 +223,35 @@ export function radar_visualization(config: RadarOptions) {
     return segmentedEntries;
   }
 
+  function getRingColor(ringIndex: number) {
+    return getRingConfigField(ringIndex, 'color')
+  }
+
+  function getRingName(ringIndex: number) {
+    return getRingConfigField(ringIndex, 'name')
+  }
+
+  function setEntriesPositions(config: RadarOptions) {
+    for (let entry of config.entries) {
+      entry.segment = segment(entry.quadrant, entry.ring);
+      let point = entry.segment.random();
+      entry.x = point.x;
+      entry.y = point.y;
+      entry.color = entry.active ? getRingColor(entry.ring) : config.colors.inactive;
+    }
+  }
+
+  function viewbox(quadrantIndex: number): string {
+    let coordinates = [
+      Math.max(0, QUADRANTS[quadrantIndex].factor_x * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
+      Math.max(0, QUADRANTS[quadrantIndex].factor_y * MAX_RING_RADIUS) - (MAX_RING_RADIUS + 20),
+      MAX_RING_RADIUS + 40,
+      MAX_RING_RADIUS + 40
+    ].join(' ');
+
+    return coordinates;
+  }
+
   seed = START_SEED;
 
   // position each entry randomly in its segment
@@ -261,7 +260,7 @@ export function radar_visualization(config: RadarOptions) {
   // partition entries according to segments
   let segmentedEntries = partitionEntries();
 
-  let svg = d3.select('svg#' + config.svg_id)
+  let svg = d3.select('svg#' + config.radarId)
     .style('background-color', config.colors.background)
     // .attr("width", config.width)
     // .attr("height", config.height)
@@ -475,6 +474,16 @@ export function radar_visualization(config: RadarOptions) {
     .on('tick', ticked);
 }
 
+
+function _deleteRadar(radarId: string) {
+  var svg = d3.select('svg#' + radarId);
+  svg.selectAll('*').remove();
+}
+
+export function redrawRadar(options: RadarOptions) {
+  _deleteRadar(options.radarId);
+  showRadar(options);
+}
 // export class Radar {
 //   constructor(private config: RadarOptions) {}
 

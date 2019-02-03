@@ -1,6 +1,8 @@
+import intersection from 'lodash.intersection';
+
 import { ALL_ENTRIES } from '../data/entries';
 import { QUADRANTS } from '../data/quadrants';
-import { RING_NAMES, RINGS, CUSTOM_RING_FILTERS } from '../data/rings';
+import { RINGS, CUSTOM_RING_FILTERS } from '../data/rings';
 
 import { IEntry } from '../types/IEntry';
 import { IRadarEntry } from '../types/IRadarEntry';
@@ -9,9 +11,13 @@ import { IRing } from '../types/IRing';
 import { RingFilter } from '../types/RingFilter';
 
 let id = 1;
-function normalizeEntry(entry: IEntry, quadrantIndex: number): IRadarEntry {
+function normalizeEntry(entry: IEntry, quadrantIndex: number, availableRingNames: string[]): IRadarEntry | null {
+  let ringIndex = availableRingNames.indexOf(entry.ring);
+  if ( ringIndex < 0) {
+    return null;
+  }
   return {
-    ring: getRingNames().indexOf(entry.ring),
+    ring: ringIndex,
     label: entry.label,
     link: entry.link,
     moved: (typeof(entry.moved) === 'undefined') ? 0 : entry.moved,
@@ -39,12 +45,14 @@ function filterByTags(entries: IEntry[], includeTags: string[]): IEntry[] {
   });
 }
 
-function filterByRings(entries: IEntry[], includeRings: string[]): IEntry[] {
+function filterByRings(entries: IEntry[], availableRingsNames: string[], includeRings: string[]): IEntry[] {
   if (!(includeRings && includeRings.length) ) {
-    return entries;
+    includeRings = availableRingsNames;
   }
+
+  let intersectionRings = intersection(availableRingsNames, includeRings);
   return entries.map((entry) => {
-    if (includeRings.indexOf(entry.ring) >= 0) {
+    if (intersectionRings.indexOf(entry.ring) >= 0) {
       return entry;
     }
 
@@ -56,23 +64,28 @@ function filterByRings(entries: IEntry[], includeRings: string[]): IEntry[] {
 }
 
 export function getQuadrantEntriesGroupedByTags(
-  quadrantsList: IQuadrant[], includeTags: string[], includeRings: string[]
+  quadrantsList: IQuadrant[], availableRings: IRing[], includeTags: string[], includeRings: string[]
 ) {
   id = 1;
-  let filteredEntries: IRadarEntry[] = [];
-  let entries = filterByRings( filterByTags(getEntries(), includeTags), includeRings );
-  for (let entry of entries) {
+  let availableRingNames = getRingNames(availableRings);
+  let entriesResult: IRadarEntry[] = [];
+  let entriesFilteredByTags = filterByTags(getEntries(), includeTags);
+  let entriesFilteredByRings = filterByRings( entriesFilteredByTags, availableRingNames, includeRings );
+  for (let entry of entriesFilteredByRings) {
     for (let quadrantIndex = 0; quadrantIndex <  quadrantsList.length; quadrantIndex++ ) {
       let quadrantTags = quadrantsList[quadrantIndex].tags;
       for (let quadrantTag of quadrantTags) {
         if (entry.tags.indexOf(quadrantTag) >= 0) {
-          filteredEntries.push(normalizeEntry(entry, quadrantIndex))
+          let normalizedEntry = normalizeEntry(entry, quadrantIndex, availableRingNames);
+          if (normalizedEntry) {
+            entriesResult.push(normalizedEntry)
+          }
         }
       }
     }
   }
 
-  return filteredEntries;
+  return entriesResult;
 }
 
 export function getAllTags(): string[] {
@@ -89,8 +102,10 @@ export function getAllTags(): string[] {
   });
 }
 
-export function getRingNames() {
-  return RING_NAMES;
+export function getRingNames(rings: IRing[]) {
+  return rings.map( (ring) => {
+    return ring.name;
+  } );
 }
 
 export function getRings(): IRing[] {
@@ -105,9 +120,9 @@ export function getEntries(): IEntry[] {
   return ALL_ENTRIES;
 }
 
-export function getRingFilters(): RingFilter {
+export function getRingFilters(rings: IRing[]): RingFilter {
   const singleRingFilters: RingFilter = {};
-  getRingNames().forEach( (ringName) => {
+  getRingNames(rings).forEach( (ringName) => {
     singleRingFilters[ringName] = [ringName];
   });
 
