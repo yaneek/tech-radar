@@ -20,7 +20,7 @@ interface IAppState {
   availableTags: string[],
   selectedTags: string[],
   availableRingFilters: RingFilter,
-  selectedRingFilters: RingType[],
+  selectedRingFilters: string[],
   quadrants: IQuadrant[],
   entries: IRadarEntry[],
   rings: IRing[],
@@ -39,7 +39,7 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
       selectedRingFilters: [],
       quadrants,
       rings,
-      entries: getQuadrantEntriesGroupedByTags(quadrants, rings, [], []),
+      entries: [],
     };
   }
 
@@ -52,7 +52,7 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
   }
 
   componentDidMount() {
-    this.renderExternalRadar();
+    this.fetchEntries();
   }
 
   fetchEntries = () => {
