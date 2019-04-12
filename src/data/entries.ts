@@ -226,7 +226,6 @@ export const ALL_ENTRIES: IEntry[] = [
       'q1-infrastructure',
       'utility',
       'CI / CD',
-      'development',
       'dev-ops',
     ]
   },
@@ -816,6 +815,17 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
+    'ring': 'ASSESS',
+    'label': 'Blackfire.io',
+    'tags': [
+      'q2-frameworks',
+      'development-tool',
+      'development',
+      'test'
+    ],
+    'link': 'https://blackfire.io/'
+  },
+  {
     'ring': 'HOLD',
     'label': 'Mocha',
     'tags': [
@@ -937,6 +947,16 @@ export const ALL_ENTRIES: IEntry[] = [
       'framework',
       'development'
     ]
+  },
+  {
+    'ring': 'ASSESS',
+    'label': 'Prisma',
+    'tags': [
+      'q2-frameworks',
+      'framework',
+      'development'
+    ],
+    'link': 'https://www.prisma.io/'
   },
   {
     'ring': 'ASSESS',
