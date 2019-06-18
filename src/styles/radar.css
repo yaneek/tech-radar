@@ -1,9 +1,9 @@
 .social-icon {
-  padding: 2px;
+  padding: 3px;
 }
 
 .entry {
-  font-size: 9px;
+  font-size: 8px;
   color: black
 }
 
@@ -11,7 +11,7 @@
   color: #CCC;
 }
 
-.entry-list {
-  column-count: 6;
+.entry-list {  
+  column-count: 5;
   column-width: 120px;
 }

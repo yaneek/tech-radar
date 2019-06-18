@@ -2,7 +2,7 @@ import intersection from 'lodash.intersection';
 
 import { ALL_ENTRIES } from '../data/entries';
 import { QUADRANTS } from '../data/quadrants';
-import { RINGS, CUSTOM_RING_FILTERS } from '../data/rings';
+import { RINGS } from '../data/rings';
 
 import { IEntry } from '../types/IEntry';
 import { IRadarEntry } from '../types/IRadarEntry';
@@ -127,7 +127,6 @@ export function getRingFilters(rings: IRing[]): RingFilter {
   });
 
   return {
-    ...CUSTOM_RING_FILTERS,
     ...singleRingFilters,
   }
 }
