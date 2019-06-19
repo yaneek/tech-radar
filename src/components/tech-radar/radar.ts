@@ -31,10 +31,10 @@ const QUADRANTS = [
 ];
 
 const ORIGINAL_WIDTH = 1450;
-const ORIGINAL_HEIGHT = 800;
-const LEGEND_OFFSET_Y = 20;
+const ORIGINAL_HEIGHT = 1000;
+const LEGEND_OFFSET_Y = 50;
 const LEGEND_OFFSET_X = 20;
-const LEGEND_WIDTH = 260;
+const LEGEND_WIDTH = 250;
 
 const TRIANGLE_POINTING_UP = 'M -11,5 11,5 0,-13 z';
 const TRIANGLE_POINTING_DOWN = 'M -11,-5 11,-5 0,13 z';
@@ -103,7 +103,7 @@ export function showRadar(config: RadarOptions) {
   const MAX_RING_RADIUS = RINGS[LAST_RING_INDEX].radius;
 
   const FOOTER_OFFSET =
-    { x: -675, y: MAX_RING_RADIUS - 10 };
+    { x: -1000, y: MAX_RING_RADIUS - 10 };
 
   const LEGEND_OFFSET = [
     {
@@ -194,10 +194,13 @@ export function showRadar(config: RadarOptions) {
   function legend_transform(
     quadrantIndex: number, ringIndex: number, legendIndex: number | null = null
   ): string {
-    let dx = ringIndex < 2 ? 0 : 120;
+    let dx = ringIndex < 2 ? 0 : 125;
     let dy = (legendIndex == null ? 0 : 16 + legendIndex * 12);
     if (ringIndex % 2 === 1) {
       dy = dy + 36 + segmentedEntries[quadrantIndex][ringIndex - 1].length * 12;
+    }
+    if (ringIndex === 4) {
+      dy = dy + 80 + segmentedEntries[quadrantIndex][ringIndex - 2].length * 12 + segmentedEntries[quadrantIndex][ringIndex - 1].length * 12;
     }
     return translate(
       LEGEND_OFFSET[quadrantIndex].x + dx,
