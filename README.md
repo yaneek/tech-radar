@@ -1,6 +1,6 @@
 # Technology radar
 
-This tool shows the current state of the methodologies, technologies, protocols and tools used by the Big Baobab team. This is based on the pioneering work of [ThoughtWorks](https://www.thoughtworks.com/radar), [Zalando's project](https://github.com/zalando/tech-radar) and [Grzegorz Marchwiński](https://github.com/yaneek/tech-radar).
+This tool shows the current state of the methodologies, technologies, protocols and tools as used by ourselves. This is based on the pioneering work of [ThoughtWorks](https://www.thoughtworks.com/radar), [Zalando's project](https://github.com/zalando/tech-radar) and [Grzegorz Marchwiński](https://github.com/yaneek/tech-radar).
 
 The Tech Radar is a list of technologies, methodologies, complemented by an assessment result, called ring assignment. There are four rings with the following semantics:
 *ADOPT* — Used in production environment, low risk and recommended to be widely used.

@@ -8,7 +8,7 @@ const Description = () => (
     </Typography>
 
     <Typography variant="subtitle2">
-      This tool shows the current state of the methodologies, technologies, protocols and tools used by the Big Baobab team. This is based on the <a href="https://www.thoughtworks.com/radar">pioneering
+      This tool shows the current state of the methodologies, technologies, protocols and tools used by our team. This is based on the <a href="https://www.thoughtworks.com/radar">pioneering
       work of ThoughtWorks</a>, <a href="https://github.com/zalando/tech-radar">Zalando&#39;s project</a> and <a href="https://github.com/yaneek/tech-radar">Grzegorz Marchwiński</a>.
     </Typography>
     <Typography variant="subtitle2">

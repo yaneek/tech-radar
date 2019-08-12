@@ -5,7 +5,7 @@ export class Header extends React.Component {
   render = () => (
     <>
       <Typography variant="h4">
-        Technology Radar - Big Baobab
+        Technology Radar
       </Typography>
       {this.props.children}
     </>
