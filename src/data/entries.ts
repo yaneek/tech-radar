@@ -56,7 +56,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'GraphQL',
     'link': 'https://graphql.org/',
     'tags': [
@@ -220,6 +220,17 @@ export const ALL_ENTRIES: IEntry[] = [
   },
   {
     'ring': 'TRIAL',
+    'label': 'Heroku',
+    'link': 'https://heroku.com/',
+    'tags': [
+      'q1-infrastructure',
+      'infrastructure',
+      'CI / CD',
+      'dev-ops',
+    ]
+  },
+  {
+    'ring': 'ADOPT',
     'label': 'Travis',
     'link': 'https://travis-ci.org/',
     'tags': [
@@ -561,7 +572,7 @@ export const ALL_ENTRIES: IEntry[] = [
   //   link: 'https://moment.github.io/luxon/',
   // },
   {
-    'ring': 'TRIAL',
+    'ring': 'HOLD',
     'label': 'TypeDI',
     'tags': [
       'q2-frameworks',
@@ -570,7 +581,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'Apollo Server',
     'tags': [
       'q2-frameworks',
@@ -656,7 +667,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'Puppeteer',
     'link': 'https://pptr.dev/',
     'tags': [
@@ -815,7 +826,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'TRIAL',
     'label': 'Blackfire.io',
     'tags': [
       'q2-frameworks',
@@ -900,7 +911,8 @@ export const ALL_ENTRIES: IEntry[] = [
       'framework',
       'development',
       'serverless'
-    ]
+    ],
+    'link': 'https://serverless.com/'
   },
   {
     'ring': 'TRIAL',
@@ -913,7 +925,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'React',
     'tags': [
       'q2-frameworks',
@@ -922,7 +934,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'DEAD',
     'label': 'Vue.js',
     'tags': [
       'q2-frameworks',
@@ -950,6 +962,15 @@ export const ALL_ENTRIES: IEntry[] = [
   },
   {
     'ring': 'ASSESS',
+    'label': 'Next.js',
+    'tags': [
+      'q2-frameworks',
+      'framework',
+      'development'
+    ]
+  },
+  {
+    'ring': 'TRIAL',
     'label': 'Prisma',
     'tags': [
       'q2-frameworks',
@@ -959,7 +980,7 @@ export const ALL_ENTRIES: IEntry[] = [
     'link': 'https://www.prisma.io/'
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'DEAD',
     'label': 'MobX',
     'tags': [
       'q2-frameworks',
@@ -986,7 +1007,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'Kibana',
     'tags': [
       'q3-data-management',
@@ -1043,7 +1064,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'HOLD',
     'label': 'Apache PredictionIO',
     'link': 'https://predictionio.apache.org/',
     'tags': [
