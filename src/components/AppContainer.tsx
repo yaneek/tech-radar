@@ -9,7 +9,6 @@ import { Header } from './Header';
 import { IRadarEntry } from '../types/IRadarEntry';
 import { RingFilter } from '../types/RingFilter';
 import { RingType } from '../types/RingType';
-import { EntryList } from './EntryList';
 import { IRing } from '../types/IRing';
 
 interface IAppProps {

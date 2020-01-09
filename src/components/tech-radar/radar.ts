@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 
-import { getRings } from '../../lib/EntriesRepository';
 import { IQuadrant } from '../../types/IQuadrant';
 import { IRadarEntry } from '../../types/IRadarEntry';
 import { IRing } from '../../types/IRing';
@@ -20,7 +19,7 @@ type RadarOptions = {
   rings: IRing[];
   zoomed_quadrant?: number;
 };
-type d3g = d3.Selection<SVGGElement, {}, HTMLElement, any>;
+type d3g = d3.Selection<SVGGElement, unknown, HTMLElement, any>;
 
 // radial_min / radial_max are multiples of PI
 const QUADRANTS = [
@@ -317,7 +316,8 @@ export function showRadar(config: RadarOptions) {
     .style('font-size', '10');
 
   // legend
-  let legendContainer = radar.append('g');
+  let legendContainer = radar.append<'g'>('g');
+  // let x: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
   for (let quadrantIndex = 0; quadrantIndex < QUADRANTS.length; quadrantIndex++) {
     addQuadandLegend(legendContainer, quadrantIndex, config.quadrants[quadrantIndex].name);
     for (let ringIndex = 0; ringIndex < RINGS.length; ringIndex++) {
