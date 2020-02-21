@@ -46,7 +46,6 @@ Private technology radar based on [Zalando's tech-radar](https://github.com/zala
 - enabled Typescript support
 
 Todo:
-- refactor to Typescript
 - radar visualization inside React compontents - d3.js & react, unfortunately both libraries works on DOM :(
 - change static data structures into database layer
 - entry names visualization withotut d3.js
