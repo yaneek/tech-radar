@@ -219,7 +219,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'Heroku',
     'link': 'https://heroku.com/',
     'tags': [
@@ -395,7 +395,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'ADOPT',
     'label': 'AWS S3',
     'link': 'https://aws.amazon.com/s3/',
     'tags': [
@@ -403,6 +403,7 @@ export const ALL_ENTRIES: IEntry[] = [
       'infrastructure',
       'database',
       'dev-ops',
+      'big-data',
       'cloud',
     ]
   },
@@ -427,6 +428,38 @@ export const ALL_ENTRIES: IEntry[] = [
       'deployment',
       'dev-ops',
       'cloud',
+    ]
+  },
+  {
+    'ring': 'ADOPT',
+    'label': 'AWS EMR',
+    'link': 'https://aws.amazon.com/emr/',
+    'tags': [
+      'q1-infrastructure',
+      'infrastructure',
+      'cloud',
+      'big-data'
+    ]
+  },
+  {
+    'ring': 'TRIAL',
+    'label': 'Hadoop',
+    'tags': [
+      'q3-data-management',
+      'infrastructure',
+      'cloud',
+      'big-data'
+    ]
+  },
+  {
+    'ring': 'TRIAL',
+    'label': 'HDFS',
+    'tags': [
+      'q3-data-management',
+      'infrastructure',
+      'cloud',
+      'database',
+      'big-data'
     ]
   },
   {
@@ -807,7 +840,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'HOLD',
     'label': 'Symfony',
     'tags': [
       'q2-frameworks',
@@ -961,21 +994,23 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'ADOPT',
     'label': 'Next.js',
     'tags': [
       'q2-frameworks',
       'framework',
       'development'
-    ]
+    ],
+    "link": "https://nextjs.org/"
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'ADOPT',
     'label': 'Prisma',
     'tags': [
       'q2-frameworks',
       'framework',
-      'development'
+      'development',
+      'orm'
     ],
     'link': 'https://www.prisma.io/'
   },

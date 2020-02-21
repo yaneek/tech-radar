@@ -50,7 +50,7 @@ const Description = () => (
     </ul>
 
     <Typography align="center">
-      &copy; 2019 Grzegorz Marchwiński
+      &copy; 2020 Grzegorz Marchwiński
     </Typography>
   </>
 )

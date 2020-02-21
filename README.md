@@ -13,7 +13,7 @@ yarn install
 2. start local dev server:
 
 ```bash
-yarn start
+yarn dev
 ```
 
 3. your default browser should automatically open and show the url: http://localhost:3000/
