@@ -8,12 +8,12 @@ const Description = () => (
     </Typography>
 
     <Typography variant="subtitle2">
-      This tool shows my skills and directions in which I intend to develop. Based on the <a href="https://www.thoughtworks.com/radar">pioneering
-      work of ThoughtWorks</a> and <a href="https://github.com/zalando/tech-radar">Zalando&#39;s project</a>.
+      This tool shows the current state of the methodologies, technologies, protocols and tools used by the Big Baobab team. This is based on the <a href="https://www.thoughtworks.com/radar">pioneering
+      work of ThoughtWorks</a>, <a href="https://github.com/zalando/tech-radar">Zalando&#39;s project</a> and <a href="https://github.com/yaneek/tech-radar">Grzegorz Marchwiński</a>.
     </Typography>
     <Typography variant="subtitle2">
       The Tech Radar is a list of technologies, methodologies,  complemented by an assessment result, called <em>ring
-        assignment</em>. I use four rings with the following semantics:
+        assignment</em>. There are four rings with the following semantics:
     </Typography>
 
 
@@ -47,11 +47,16 @@ const Description = () => (
           but usually can be continued for existing projects.
           </Typography>
       </li>
+
+      <li>
+        <Typography variant="body2">
+          <strong>RISK</strong> &mdash; A possible risk with the technology has been identified.
+          This risk relates to the use of the technology within the project. For example an open source project
+          being purchased by an organization that is likely to close source the software.
+          </Typography>
+      </li>
     </ul>
 
-    <Typography align="center">
-      &copy; 2019 Grzegorz Marchwiński
-    </Typography>
   </>
 )
 
