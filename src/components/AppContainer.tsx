@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getAllTags, getRingFilters, getQuadrants, getQuadrantEntriesGroupedByTags, getRings } from '../lib/EntriesRepository';
-import FilterContainer from './FilterContainer.jsx';
+import { FilterContainer } from './FilterContainer';
 import '../styles/radar.css';
 import { redrawRadar } from './tech-radar/radar';
 import { IQuadrant } from '../types/IQuadrant';
@@ -19,7 +19,7 @@ interface IAppState {
   availableTags: string[],
   selectedTags: string[],
   availableRingFilters: RingFilter,
-  selectedRingFilters: string[],
+  selectedRingFilters: RingType[],
   quadrants: IQuadrant[],
   entries: IRadarEntry[],
   rings: IRing[],
@@ -88,7 +88,7 @@ export class AppContainer extends React.Component<IAppProps, IAppState>{
         />
         <FilterContainer
           caption="Filter by ring"
-          tags={Object.keys(this.state.availableRingFilters)}
+          tags={Object.keys(this.state.availableRingFilters) as RingType[]}
           selectedTags={this.state.selectedRingFilters}
           selectTags={this.selectRings}
         />
