@@ -1,6 +1,7 @@
 language: node_js
-node_js:
-  - "lts/*"
+# read node version from .nvmrc
+# node_js:
+#   - "lts/*"
 cache: yarn
 branches:
   only:
