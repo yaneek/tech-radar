@@ -13,15 +13,21 @@ import { RingFilter } from '../types/RingFilter';
 let id = 1;
 function normalizeEntry(entry: IEntry, quadrantIndex: number, availableRingNames: string[]): IRadarEntry | null {
   let ringIndex = availableRingNames.indexOf(entry.ring);
-  if ( ringIndex < 0) {
+  if (ringIndex < 0) {
     return null;
   }
+  const visible = (typeof(entry.visible) === 'undefined') ? true : entry.visible;
+  if (!visible) {
+    return null;
+  }
+
   return {
     ring: ringIndex,
     label: entry.label,
     link: entry.link,
     moved: (typeof(entry.moved) === 'undefined') ? 0 : entry.moved,
     active: (typeof(entry.active) === 'undefined') ? true : entry.active,
+    visible: visible,
     quadrant: quadrantIndex,
     id: id++,
   }
