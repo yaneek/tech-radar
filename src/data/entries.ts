@@ -117,7 +117,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Golang',
     'link': 'https://golang.org/',
     'tags': [
@@ -173,7 +173,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ADOPT',
+    'ring': 'HOLD',
     'label': 'Vagrant',
     'link': 'https://www.vagrantup.com/',
     'tags': [
@@ -196,7 +196,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'ADOPT',
     'label': 'Kubernetes',
     'link': 'https://kubernetes.io/',
     'tags': [
@@ -266,6 +266,7 @@ export const ALL_ENTRIES: IEntry[] = [
     'ring': 'ADOPT',
     'label': 'JMeter',
     'link': 'https://jmeter.apache.org/',
+    'visible': false,
     'tags': [
       'q1-infrastructure',
       'utility',
@@ -275,6 +276,7 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'Postman',
+    'visible': false,
     'link': 'https://www.getpostman.com/',
     'tags': [
       'q1-infrastructure',
@@ -304,6 +306,7 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'Slack',
+    'visible': false,
     'link': 'https://slack.com/',
     'tags': [
       'q1-infrastructure',
@@ -313,6 +316,7 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'HOLD',
     'label': 'Skype',
+    'visible': false,
     'tags': [
       'q1-infrastructure',
       'utility'
@@ -329,7 +333,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ADOPT',
+    'ring': 'HOLD',
     'label': 'BalsamiQ',
     'link': 'https://balsamiq.com/',
     'tags': [
@@ -351,6 +355,7 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'VSC',
+    'visible': false,
     'link': 'https://code.visualstudio.com/',
     'tags': [
       'q1-infrastructure',
@@ -369,7 +374,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Azure functions',
     'link': 'https://azure.microsoft.com/en-us/services/functions/',
     'tags': [
@@ -416,6 +421,18 @@ export const ALL_ENTRIES: IEntry[] = [
       'infrastructure',
       'database',
       'dev-ops',
+    ]
+  },
+  {
+    'ring': 'ADOPT',
+    'label': 'Google Cloud',
+    'link': 'https://cloud.google.com/',
+    'tags': [
+      'q1-infrastructure',
+      'infrastructure',
+      'deployment',
+      'dev-ops',
+      'cloud',
     ]
   },
   {
@@ -483,7 +500,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'TRIAL',
     'label': 'Raspberry PI',
     'tags': [
       'q1-infrastructure',
@@ -492,7 +509,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Intel Neural Compute Stick',
     'tags': [
       'q1-infrastructure',
@@ -540,6 +557,7 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'Trello',
+    'visible': false,
     'tags': [
       'q1-infrastructure',
       'utility'
@@ -556,7 +574,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ADOPT',
+    'ring': 'HOLD',
     'label': 'Browsersync',
     'link': 'https://browsersync.io/',
     'tags': [
@@ -680,7 +698,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'TRIAL',
     'label': 'Strapi',
     'link': 'https://strapi.io/',
     'tags': [
@@ -690,9 +708,10 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'KeystoneJS',
     'link': 'https://keystonejs.com/',
+    'visible': false,
     'tags': [
       'q2-frameworks',
       'framework',
@@ -740,6 +759,15 @@ export const ALL_ENTRIES: IEntry[] = [
   },
   {
     'ring': 'ADOPT',
+    'label': 'TypeORM',
+    'tags': [
+      'q2-frameworks',
+      'development-tool',
+      'development'
+    ]
+  },
+  {
+    'ring': 'HOLD',
     'label': 'TSLint',
     'tags': [
       'q2-frameworks',
@@ -794,8 +822,9 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Tensor flow',
+    'visible': false,
     'tags': [
       'q2-frameworks',
       'framework',
@@ -831,8 +860,9 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'TRIAL',
+    'ring': 'REJECT',
     'label': 'Slim',
+    'visible': false,
     'tags': [
       'q2-frameworks',
       'framework',
@@ -967,7 +997,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'DEAD',
+    'ring': 'REJECT',
     'label': 'Vue.js',
     'tags': [
       'q2-frameworks',
@@ -985,8 +1015,9 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Angular',
+    "visible": false,
     'tags': [
       'q2-frameworks',
       'framework',
@@ -1004,7 +1035,7 @@ export const ALL_ENTRIES: IEntry[] = [
     "link": "https://nextjs.org/"
   },
   {
-    'ring': 'ADOPT',
+    'ring': 'HOLD',
     'label': 'Prisma',
     'tags': [
       'q2-frameworks',
@@ -1015,7 +1046,7 @@ export const ALL_ENTRIES: IEntry[] = [
     'link': 'https://www.prisma.io/'
   },
   {
-    'ring': 'DEAD',
+    'ring': 'REJECT',
     'label': 'MobX',
     'tags': [
       'q2-frameworks',
@@ -1077,7 +1108,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Aerospike',
     'link': 'https://www.aerospike.com/',
     'tags': [
@@ -1088,7 +1119,7 @@ export const ALL_ENTRIES: IEntry[] = [
     ]
   },
   {
-    'ring': 'ASSESS',
+    'ring': 'REJECT',
     'label': 'Apache Ignite',
     'link': 'https://ignite.apache.org/',
     'tags': [
@@ -1111,6 +1142,16 @@ export const ALL_ENTRIES: IEntry[] = [
   {
     'ring': 'ADOPT',
     'label': 'Neo4j',
+    'tags': [
+      'q3-data-management',
+      'database',
+      'graph',
+    ]
+  },
+  {
+    'ring': 'ADOPT',
+    'label': 'ONgDB',
+    'link': 'https://www.graphfoundation.org/projects/ongdb/',
     'tags': [
       'q3-data-management',
       'database',

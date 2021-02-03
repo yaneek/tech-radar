@@ -3,6 +3,7 @@ export interface IRadarEntry {
   label: string;
   link?: string;
   active: boolean;
+  visible: boolean;
   quadrant: number;
   moved: number;
   id: number;

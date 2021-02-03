@@ -6,5 +6,6 @@ export interface IEntry {
   link?: string;
   tags: string[];
   active?: boolean;
+  visible?: boolean;
   moved?: number;
 }
