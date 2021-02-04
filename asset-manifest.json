@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/tech-radar/static/css/main.ea83928f.chunk.css",
+    "main.js": "/tech-radar/static/js/main.00f9ea42.chunk.js",
+    "main.js.map": "/tech-radar/static/js/main.00f9ea42.chunk.js.map",
+    "runtime-main.js": "/tech-radar/static/js/runtime-main.64c5eb1b.js",
+    "runtime-main.js.map": "/tech-radar/static/js/runtime-main.64c5eb1b.js.map",
+    "static/js/2.3b9f1656.chunk.js": "/tech-radar/static/js/2.3b9f1656.chunk.js",
+    "static/js/2.3b9f1656.chunk.js.map": "/tech-radar/static/js/2.3b9f1656.chunk.js.map",
+    "index.html": "/tech-radar/index.html",
+    "static/css/main.ea83928f.chunk.css.map": "/tech-radar/static/css/main.ea83928f.chunk.css.map",
+    "static/js/2.3b9f1656.chunk.js.LICENSE.txt": "/tech-radar/static/js/2.3b9f1656.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64c5eb1b.js",
+    "static/js/2.3b9f1656.chunk.js",
+    "static/css/main.ea83928f.chunk.css",
+    "static/js/main.00f9ea42.chunk.js"
+  ]
+}
