@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.css": "/tech-radar/static/css/main.0a72e8f1.chunk.css",
-    "main.js": "/tech-radar/static/js/main.c5e56263.chunk.js",
-    "main.js.map": "/tech-radar/static/js/main.c5e56263.chunk.js.map",
-    "runtime-main.js": "/tech-radar/static/js/runtime-main.64c5eb1b.js",
-    "runtime-main.js.map": "/tech-radar/static/js/runtime-main.64c5eb1b.js.map",
-    "static/js/2.3b9f1656.chunk.js": "/tech-radar/static/js/2.3b9f1656.chunk.js",
-    "static/js/2.3b9f1656.chunk.js.map": "/tech-radar/static/js/2.3b9f1656.chunk.js.map",
+    "main.css": "/tech-radar/static/css/main.cc273eac.css",
+    "main.js": "/tech-radar/static/js/main.3e8c7f38.js",
     "index.html": "/tech-radar/index.html",
-    "static/css/main.0a72e8f1.chunk.css.map": "/tech-radar/static/css/main.0a72e8f1.chunk.css.map",
-    "static/js/2.3b9f1656.chunk.js.LICENSE.txt": "/tech-radar/static/js/2.3b9f1656.chunk.js.LICENSE.txt"
+    "main.cc273eac.css.map": "/tech-radar/static/css/main.cc273eac.css.map",
+    "main.3e8c7f38.js.map": "/tech-radar/static/js/main.3e8c7f38.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.64c5eb1b.js",
-    "static/js/2.3b9f1656.chunk.js",
-    "static/css/main.0a72e8f1.chunk.css",
-    "static/js/main.c5e56263.chunk.js"
+    "static/css/main.cc273eac.css",
+    "static/js/main.3e8c7f38.js"
   ]
 }
